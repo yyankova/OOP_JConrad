@@ -9,8 +9,8 @@
 
     struct ToolInOurGame 
     {
-    private List<Axe> listOfAxes = new List<Axe>();
-    private List<Cutter> listOfCutter = new List<Cutter>();
+    //private List<Axe> listOfAxes = new List<Axe>();
+    //private List<Cutter> listOfCutter = new List<Cutter>();
 
 
         /*

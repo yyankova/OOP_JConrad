@@ -8,8 +8,10 @@
 
     public class Axe : Item
     {
+        // Fields
         private int axeHeadSharpness;
 
+        // Constructors
         public Axe() 
             : base()
         { }
@@ -17,10 +19,15 @@
         public Axe(string inputName, int inputPrice)
             : base(inputName, inputPrice)
         {
-            this.Name = inputName;
-            this.Price = inputPrice;
         }
 
+        public Axe(string inputName, decimal inputPrice, int inputSharpness)
+            : base(inputName, inputPrice)
+        {
+            this.AxeHeadSharpness = inputSharpness;
+        }
+
+        //properties
         public int AxeHeadSharpness
         {
             get 
