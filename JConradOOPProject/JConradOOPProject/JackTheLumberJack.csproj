@@ -63,13 +63,9 @@
     <Compile Include="GameObjects\Tools\Weapons\Cutter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
-    <Compile Include="Views\JackTheLumberJackControl.xaml.cs">
-      <DependentUpon>JackTheLumberJackControl.xaml</DependentUpon>
+    <Compile Include="Views\MainMenu.xaml.cs">
+      <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -78,11 +74,21 @@
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Position.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Views\NewGame.xaml.cs">
+      <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\JackTheLumberJackControl.xaml">
+    <Compile Include="Views\StartMenu.xaml.cs">
+      <DependentUpon>StartMenu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\MainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\NewGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StartMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -118,7 +124,13 @@
     <Folder Include="ClassDiagram\" />
     <Folder Include="Commands\" />
     <Folder Include="Enumerations\" />
-    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.ico" />
+    <Resource Include="Images\main_menu_bg.jpg" />
+    <Resource Include="Images\menu_button.png" />
+    <Resource Include="Images\menu_button_click.png" />
+    <Resource Include="Images\menu_button_hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
