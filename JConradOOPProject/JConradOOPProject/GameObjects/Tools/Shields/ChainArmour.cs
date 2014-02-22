@@ -1,4 +1,4 @@
-﻿namespace JConradOOPProject.GameObjects.Tools
+﻿namespace JConradOOPProject.GameObjects.Tools.Shields
 {
     using System;
     using System.Collections.Generic;
@@ -6,12 +6,8 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    enum ToolInOurGame 
+    class ChainArmour : Item
     {
-    
-    }
 
-    class EnumerationOfTools
-    {
     }
 }

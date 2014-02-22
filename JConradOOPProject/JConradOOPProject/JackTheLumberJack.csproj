@@ -54,8 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="GameObjects\Tools\EnumerationOfTools.cs" />
+    <Compile Include="GameObjects\Tools\ListOfTools.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
+    <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
+    <Compile Include="GameObjects\Tools\Shields\SweatCloth.cs" />
     <Compile Include="GameObjects\Tools\Skills\Defence.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Axe.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Cutter.cs" />
@@ -116,7 +118,6 @@
     <Folder Include="ClassDiagram\" />
     <Folder Include="Commands\" />
     <Folder Include="Enumerations\" />
-    <Folder Include="GameObjects\Tools\Shields\" />
     <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
