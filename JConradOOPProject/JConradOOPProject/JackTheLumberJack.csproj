@@ -118,7 +118,13 @@
     <Folder Include="ClassDiagram\" />
     <Folder Include="Commands\" />
     <Folder Include="Enumerations\" />
-    <Folder Include="Images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\icon.ico" />
+    <Resource Include="Images\main_menu_bg.jpg" />
+    <Resource Include="Images\menu_button.png" />
+    <Resource Include="Images\menu_button_click.png" />
+    <Resource Include="Images\menu_button_hover.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
