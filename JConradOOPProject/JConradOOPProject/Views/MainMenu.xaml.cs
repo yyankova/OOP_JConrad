@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace JConradOOPProject.Views
 {
     /// <summary>
-    /// Interaction logic for JackTheLumberJackControl.xaml
+    /// Interaction logic for MainMenu.xaml
     /// </summary>
-    public partial class JackTheLumberJackControl : UserControl
+    public partial class MainMenu : Window
     {
-        public JackTheLumberJackControl()
+        public MainMenu()
         {
             InitializeComponent();
         }
