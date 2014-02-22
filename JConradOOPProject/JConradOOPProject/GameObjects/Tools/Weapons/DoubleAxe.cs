@@ -6,41 +6,41 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Axe : Item
+    public class DoubleAxe : Item
     {
         //constants 
         const int HitPoints = 100;
 
         // Fields
-        private int axeHeadSharpness;
+        private int doubleAxeHeadSharpness;
         private ColorEnum color;
 
         // Constructors
-        public Axe() 
+        public DoubleAxe() 
             : base()
         { }
 
-        public Axe(string inputName, int inputPrice)
+        public DoubleAxe(string inputName, int inputPrice)
             : base(inputName, inputPrice)
         {
         }
 
-        public Axe(string inputName, decimal inputPrice, int inputSharpness)
+        public DoubleAxe(string inputName, decimal inputPrice, int inputSharpness)
             : base(inputName, inputPrice)
         {
-            this.AxeHeadSharpness = inputSharpness;
+            this.DoubleAxeHeadSharpness = inputSharpness;
         }
 
         //properties
-        public int AxeHeadSharpness
+        public int DoubleAxeHeadSharpness
         {
             get 
             {
-                return this.axeHeadSharpness;            
+                return this.doubleAxeHeadSharpness;            
             }
             set 
             {
-                this.axeHeadSharpness = value;
+                this.doubleAxeHeadSharpness = value;
             }
         }
 
@@ -66,6 +66,7 @@
         public override string ToString()
         {
             return base.ToString();
-        } 
+        }
+
     }
 }

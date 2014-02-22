@@ -8,8 +8,13 @@
 
     class Cutter : Item
     {
+        //constants 
+        const int HitPoints = 150;
+
+        //fields
         private int cutterSpeed;
 
+        //constructors
         public Cutter(string inputName, decimal inputPrice)
             : base(inputName, inputPrice)
         { }
@@ -31,7 +36,5 @@
                 this.cutterSpeed = value;
             }
         }
-
-
     }
 }

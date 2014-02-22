@@ -60,7 +60,11 @@
     <Compile Include="GameObjects\Tools\Shields\SweatCloth.cs" />
     <Compile Include="GameObjects\Tools\Skills\Defence.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Axe.cs" />
+    <Compile Include="GameObjects\Tools\Weapons\Chopper.cs" />
+    <Compile Include="GameObjects\Tools\Weapons\ColorEnum.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Cutter.cs" />
+    <Compile Include="GameObjects\Tools\Weapons\DoubleAxe.cs" />
+    <Compile Include="GameObjects\Tools\Weapons\Knife.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
     <Compile Include="Views\MainMenu.xaml.cs">

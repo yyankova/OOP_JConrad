@@ -8,10 +8,12 @@
 
     public abstract class Item
     {
+        //fields
         private string name;
         private decimal price;
         private string description;
 
+        //constructors
         public Item()
         { }
 
@@ -21,6 +23,7 @@
             this.Price = inputPrice;
         }
 
+        //properties
         public string Name
         {
             get { return this.name; }
@@ -59,6 +62,7 @@
             }
         }
 
+        //methods
         public override string ToString()
         {
             return base.ToString();

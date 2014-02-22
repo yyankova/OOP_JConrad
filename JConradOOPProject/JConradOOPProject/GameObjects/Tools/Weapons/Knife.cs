@@ -6,44 +6,25 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Axe : Item
+    public class Knife : Item
     {
-        //constants 
+         //constants 
         const int HitPoints = 100;
 
         // Fields
-        private int axeHeadSharpness;
         private ColorEnum color;
 
         // Constructors
-        public Axe() 
+        public Knife() 
             : base()
         { }
 
-        public Axe(string inputName, int inputPrice)
+        public Knife(string inputName, int inputPrice)
             : base(inputName, inputPrice)
         {
         }
-
-        public Axe(string inputName, decimal inputPrice, int inputSharpness)
-            : base(inputName, inputPrice)
-        {
-            this.AxeHeadSharpness = inputSharpness;
-        }
-
-        //properties
-        public int AxeHeadSharpness
-        {
-            get 
-            {
-                return this.axeHeadSharpness;            
-            }
-            set 
-            {
-                this.axeHeadSharpness = value;
-            }
-        }
-
+        
+        //properties        
         public ColorEnum Color
         {
             get 
