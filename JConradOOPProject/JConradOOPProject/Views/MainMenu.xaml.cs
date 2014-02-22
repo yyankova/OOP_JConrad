@@ -19,9 +19,28 @@ namespace JConradOOPProject.Views
     /// </summary>
     public partial class MainMenu : Window
     {
+        /// <summary>
+        /// Initializes main components and renders main menu buttons.
+        /// </summary>
         public MainMenu()
         {
             InitializeComponent();
+            this.ContentSwitcher.Children.Add(new StartMenu());
+        }
+
+        /// <summary>
+        /// Switches the content of main menu by given UserControl
+        /// </summary>
+        /// <param name="newContent"></param>
+        public static void SwitchWindowContent(UserControl newContent)
+        {
+            MainMenu accessMasterWindow = Application.Current.MainWindow as MainMenu;
+
+            // Clears the current content of the window
+            accessMasterWindow.ContentSwitcher.Children.Clear();
+
+            // Sets the new content
+            accessMasterWindow.ContentSwitcher.Children.Add(newContent);
         }
     }
 }

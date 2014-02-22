@@ -63,16 +63,9 @@
     <Compile Include="GameObjects\Tools\Weapons\Cutter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
-    <Compile Include="Views\JackTheLumberJackControl.xaml.cs">
-      <DependentUpon>JackTheLumberJackControl.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Views\MainMenu.xaml.cs">
       <DependentUpon>MainMenu.xaml</DependentUpon>
     </Compile>
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -81,15 +74,21 @@
     <Compile Include="GameObjects\GameObject.cs" />
     <Compile Include="GameObjects\Position.cs" />
     <Compile Include="Interfaces\IMovable.cs" />
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
+    <Compile Include="Views\NewGame.xaml.cs">
+      <DependentUpon>NewGame.xaml</DependentUpon>
     </Compile>
-    <Page Include="Views\JackTheLumberJackControl.xaml">
+    <Compile Include="Views\StartMenu.xaml.cs">
+      <DependentUpon>StartMenu.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Views\MainMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\MainMenu.xaml">
+    <Page Include="Views\NewGame.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\StartMenu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
