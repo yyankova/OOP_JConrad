@@ -4,8 +4,21 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
-    <Grid>
-        <Button Content="Back" Width="75" Height="20" Click="ButtonBack_Click"/>
+             d:DesignHeight="300" d:DesignWidth="500">
+    <Grid Width="500">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,-20,0,0">
+            <TextBlock Text="New Game" FontSize="20" />
+            <TextBlock Text="Prepare for your journey!" Margin="0,0,0,15" />
+            <TextBox Name="NewGameName" HorizontalAlignment="Center" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="500" Height="35" Background="Brown" Foreground="White" FontFamily="Segoe UI Light" FontSize="15" Padding="10,6,0,0" GotFocus="TextBoxNewGameName_Focus" />
+            <Canvas>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel.Resources>
+                        <Style BasedOn="{StaticResource small-menu-button}" TargetType="{x:Type Button}" />
+                    </StackPanel.Resources>
+                    <Button Content="Start" IsDefault="True" Click="ButtonStart_Click"/>
+                    <Button Content="Back" Click="ButtonBack_Click"/>
+                </StackPanel>
+            </Canvas>
+        </StackPanel>
     </Grid>
 </UserControl>

@@ -49,7 +49,7 @@
                 <Style BasedOn="{StaticResource menu-button}" TargetType="{x:Type Button}" />
             </StackPanel.Resources>
             <Button Content="New Game" Click="ButtonNewGame_Click" />
-            <Button Content="Load Game" />
+            <Button Content="Load Game" Click="ButtonLoadGame_Click" />
             <Button Content="Quit" Click="ButtonQuit_Click" />
         </StackPanel>
     </Canvas>

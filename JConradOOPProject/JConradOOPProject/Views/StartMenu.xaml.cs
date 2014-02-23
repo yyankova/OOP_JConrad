@@ -37,6 +37,16 @@ namespace JConradOOPProject.Views
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonLoadGame_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu.SwitchWindowContent(new LoadGame());
+        }
+
+        /// <summary>
         /// Button QUIT
         /// Shuts down the application.
         /// </summary>
