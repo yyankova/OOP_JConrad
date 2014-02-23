@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.GameObjects.Tools.Skills
 {
-    class Skill : Item
+    public abstract class Skill : Item
     {
         public Skill(string inputName, decimal inputPrice)
             : base(inputName, inputPrice)

@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Weapon : Item
+    public abstract class Weapon : Item
     {
         public Weapon()
         { }

@@ -7,7 +7,7 @@
     using System.Threading.Tasks;
     using JConradOOPProject.GameObjects.Tools.Weapons;
 
-    class Shield : Item
+    public abstract class Shield : Item
     {
         public Shield()
         { }
