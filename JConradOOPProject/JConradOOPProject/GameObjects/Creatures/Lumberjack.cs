@@ -21,8 +21,9 @@ namespace JConradOOPProject.GameObjects.Creatures
         public int Precision { get; set; }
         public int Speed { get; set; }
 
-        public List<Skill> Skills { get; set; } // list of skills
-        public Skill CurrentSkill { get; set; } // 1, 2, 3: with which skill the attack is performed
+        public List<Skill> Skills { get; set; }
+        public List<Skill> CurrentSkills { get; set; } // max 3 skills 
+        public int SkillIndex { get; set; } //0, 1, 2: with which skill the attack is performed
 
         public List<Weapon> Weapons { get; set; }
         public Weapon CurrentWeapon { get; set; }
