@@ -38,6 +38,5 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
 
         //methods
 
-
     }
 }

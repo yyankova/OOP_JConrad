@@ -2,7 +2,7 @@
 {
     using System;
 
-    class Chopper : Item
+    class Chopper : Weapon
     {
         //constants 
         const int HitPoints = 150;

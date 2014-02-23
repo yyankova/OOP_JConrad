@@ -57,7 +57,9 @@
     <Compile Include="GameObjects\Tools\ListOfTools.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
     <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
+    <Compile Include="GameObjects\Tools\Shields\Shield.cs" />
     <Compile Include="GameObjects\Tools\Shields\SweatCloth.cs" />
+    <Compile Include="GameObjects\Tools\Skills\Attack.cs" />
     <Compile Include="GameObjects\Tools\Skills\Defence.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Axe.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Chopper.cs" />
@@ -65,6 +67,7 @@
     <Compile Include="GameObjects\Tools\Weapons\Cutter.cs" />
     <Compile Include="GameObjects\Tools\Weapons\DoubleAxe.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Knife.cs" />
+    <Compile Include="GameObjects\Tools\Weapons\Weapon.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
     <Compile Include="Views\LoadGame.xaml.cs">

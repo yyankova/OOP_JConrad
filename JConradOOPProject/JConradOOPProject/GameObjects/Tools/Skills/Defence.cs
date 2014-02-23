@@ -8,6 +8,24 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
 {
     class Defence : Item
     {
+        //fields
+        private byte levelOfSkill;
+
+        //constructors
+        public Defence(string inputName, decimal inputPrice)
+            : base(inputName, inputPrice)
+        { }
+
+        public Defence(string inputName, decimal inputPrice, byte inputLevel)
+            : base(inputName, inputPrice)
+        {
+            this.levelOfSkill = inputLevel;
+        }
+
+        //properties
+        
+
+        //methods
 
     }
 }

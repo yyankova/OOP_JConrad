@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public class DoubleAxe : Item
+    public class DoubleAxe : Weapon
     {
         //constants 
         const int HitPoints = 100;

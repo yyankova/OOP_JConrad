@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    class Cutter : Item
+    class Cutter : Weapon
     {
         //constants 
         const int HitPoints = 150;
