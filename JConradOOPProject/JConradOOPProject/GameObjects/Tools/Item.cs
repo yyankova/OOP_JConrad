@@ -38,7 +38,7 @@
             }
             set 
             {
-                if (price <= 0)
+                if (value <= 0)
                 {
                     throw new Exception("The price must be postive number.");
                 }
