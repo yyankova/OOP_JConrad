@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JConradOOPProject.Interfaces
+namespace JConradOOPProject.GameObjects.Creatures
 {
-    public interface IMovable
+    public class EnemyLumberjack : Enemy
     {
-        void Move(int deltaX, int deltaY);
     }
 }

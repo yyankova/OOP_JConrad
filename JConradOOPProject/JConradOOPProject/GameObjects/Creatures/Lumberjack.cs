@@ -9,18 +9,12 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.GameObjects.Creatures
 {
-    partial class Lumberjack : Creature
+    public partial class Lumberjack : Creature
     {
-        public string Name { get; set; }
-        public int Health { get; set; }
         public int CurrentLevel { get; set; }
         public int CurrentExperience { get; set; }
         public int GoldAmount { get; set; }
-        public int AttackPower { get; set; }
-        public int DefencePower { get; set; }
-        public int Precision { get; set; }
-        public int Speed { get; set; }
-
+        
         public List<Skill> Skills { get; set; }
         public List<Skill> CurrentSkills { get; private set; } // max 3 skills; set is private because 
                            // we must add skills only from one place to make sure the slots are exactly 3
@@ -31,5 +25,8 @@ namespace JConradOOPProject.GameObjects.Creatures
 
         public List<Shield> Shields { get; set; }
         public Shield CurrentShield { get; set; }
+
+        public Lumberjack(string name, Position position) : base(name, position)
+        { }
     }
 }

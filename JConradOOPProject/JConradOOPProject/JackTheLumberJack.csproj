@@ -56,6 +56,10 @@
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Enumerations\EquipmentType.cs" />
+    <Compile Include="GameObjects\Creatures\Bear.cs" />
+    <Compile Include="GameObjects\Creatures\Enemy.cs" />
+    <Compile Include="GameObjects\Creatures\EnemyLumberjack.cs" />
+    <Compile Include="GameObjects\Creatures\ForestGhost.cs" />
     <Compile Include="GameObjects\Creatures\Lumberjack.cs" />
     <Compile Include="GameObjects\Creatures\LumberjackInventory.cs" />
     <Compile Include="GameObjects\Tools\ListOfTools.cs" />
@@ -76,6 +80,7 @@
     <Compile Include="GameObjects\Tools\Weapons\Weapon.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
+    <Compile Include="ViewModels\GameParameters.cs" />
     <Compile Include="Views\LoadGame.xaml.cs">
       <DependentUpon>LoadGame.xaml</DependentUpon>
     </Compile>

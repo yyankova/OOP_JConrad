@@ -1,6 +1,6 @@
 ﻿namespace JConradOOPProject
 {
-    enum EquipmentType
+    public enum EquipmentType
     {
         Shield,
         Weapon,

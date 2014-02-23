@@ -11,7 +11,7 @@
     using JConradOOPProject.GameObjects.Tools.Skills;
     using JConradOOPProject.GameObjects.Tools.Weapons;
 
-    partial class Lumberjack
+    public partial class Lumberjack
     {
         private List<Item> Inventory
         {

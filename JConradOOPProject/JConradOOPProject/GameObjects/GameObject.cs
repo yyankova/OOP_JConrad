@@ -9,7 +9,18 @@ namespace JConradOOPProject.GameObjects
 {
     public abstract class GameObject : BaseViewModel
     {
-        Position position;
+        protected Position position;
+        public Position Position
+        {
+            get
+            {
+                return this.position;
+            }
+            set
+            {
+                this.position = value;
+            }
+        }
         public int Heigth { get; set; }
         public int Width { get; set; }
     }
