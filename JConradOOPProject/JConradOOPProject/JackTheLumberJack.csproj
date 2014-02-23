@@ -54,6 +54,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GameObjects\Creatures\Lumberjack.cs" />
     <Compile Include="GameObjects\Tools\ListOfTools.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
     <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
@@ -61,6 +62,7 @@
     <Compile Include="GameObjects\Tools\Shields\SweatCloth.cs" />
     <Compile Include="GameObjects\Tools\Skills\Attack.cs" />
     <Compile Include="GameObjects\Tools\Skills\Defence.cs" />
+    <Compile Include="GameObjects\Tools\Skills\Skill.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Axe.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Chopper.cs" />
     <Compile Include="GameObjects\Tools\Weapons\ColorEnum.cs" />

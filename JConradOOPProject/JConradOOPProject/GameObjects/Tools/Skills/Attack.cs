@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.GameObjects.Tools.Skills
 {
-    class Attack : Item
+    class Attack : Skill
     {
         //fields
         private byte levelOfSkill;
