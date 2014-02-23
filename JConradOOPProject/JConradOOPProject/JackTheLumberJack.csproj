@@ -61,6 +61,7 @@
     <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
     <Compile Include="GameObjects\Tools\Shields\Shield.cs" />
     <Compile Include="GameObjects\Tools\Shields\SweatCloth.cs" />
+    <Compile Include="GameObjects\Tools\Shop.cs" />
     <Compile Include="GameObjects\Tools\Skills\Attack.cs" />
     <Compile Include="GameObjects\Tools\Skills\Defence.cs" />
     <Compile Include="GameObjects\Tools\Skills\Skill.cs" />
