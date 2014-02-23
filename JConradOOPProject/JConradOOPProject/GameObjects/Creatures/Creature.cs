@@ -1,4 +1,6 @@
 ﻿
+using JConradOOPProject.GameObjects.Tools.Shields;
+using JConradOOPProject.GameObjects.Tools.Weapons;
 using JConradOOPProject.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -52,6 +54,8 @@ namespace JConradOOPProject.GameObjects.Creatures
         public int DefencePower { get; set; }
         public int Precision { get; set; }
         public int Speed { get; set; }
+        public Weapon CurrentWeapon { get; set; }
+        public Shield CurrentShield { get; set; }
         public bool IsAlive
         {
             get
@@ -60,12 +64,14 @@ namespace JConradOOPProject.GameObjects.Creatures
             }
         }
        
-        public Creature() : this(String.Empty, new Position())
+        public Creature() : this(String.Empty, new Position(), 0, 0)
         { }
-        public Creature(string name, Position position)
+        public Creature(string name, Position position, int width, int heigth)
         {
             this.Name = name;
             this.Position = position;
+            this.Width = width;
+            this.Heigth = heigth;
             this.Health = InitialHealth;
             this.AttackPower = InitialAttackPower;
             this.DefencePower = InitialDefencePower;
@@ -77,6 +83,11 @@ namespace JConradOOPProject.GameObjects.Creatures
         {
             this.Position.X += deltaX;
             this.Position.Y += deltaY;
+        }
+
+        public virtual int HitPower()
+        {
+            return this.AttackPower + this.CurrentWeapon.Power;
         }
     }
 }

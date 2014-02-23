@@ -15,5 +15,10 @@
         {
 
         }
+
+        public abstract int Power
+        {
+            get;
+        }
     }
 }

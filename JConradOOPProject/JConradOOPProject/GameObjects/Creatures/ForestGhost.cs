@@ -8,8 +8,8 @@ namespace JConradOOPProject.GameObjects.Creatures
 {
     public class ForestGhost: Enemy
     {
-        public ForestGhost(string name, Position position)
-            : base(name, position)
+        public ForestGhost(string name, Position position, int width, int heigth)
+            : base(name, position, width, heigth)
         { }
     }
 }

@@ -36,5 +36,13 @@
                 this.cutterSpeed = value;
             }
         }
+        public override int Power
+        {
+            get
+            {
+                return HitPoints;
+            }
+
+        }
     }
 }

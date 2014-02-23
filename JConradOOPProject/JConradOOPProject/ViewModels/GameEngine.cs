@@ -1,6 +1,7 @@
 ﻿using JConradOOPProject.Commands;
 using JConradOOPProject.GameObjects;
 using JConradOOPProject.GameObjects.Creatures;
+using JConradOOPProject.GameObjects.Tools.Weapons;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,9 @@ namespace JConradOOPProject.ViewModels
     public class GameEngine : BaseViewModel
     {
         private static readonly Random randomGen = new Random();
+        private const int InitialLevel = 1;
+        private const int InitialGold = 100;
+        private const int InitialExperience = 0;
 
         private Lumberjack player;
         private Enemy enemy;
@@ -118,13 +122,13 @@ namespace JConradOOPProject.ViewModels
 
         private void InitializeEnemy()
         {
-            //TODO: Generate enemy depending on selected area or generate random enemy
-            this.enemy = new ForestGhost("Ghost", new Position());
+            //TODO: Generate random enemy depending on selected area, level
+            this.enemy = new ForestGhost("Ghost", new Position(), 0, 0);
         }
         private void InitializePlayer()
         {
-            //TODO: Pass name parameter
-            this.player = new Lumberjack("Jack", new Position());
+            //TODO: Pass name, position
+            this.player = new Lumberjack("Jack", new Position(), InitialLevel, InitialExperience, InitialGold, 0, 0);
             this.PlayerCanAttack = (this.player.Speed > this.enemy.Speed);
         }
         void HandlePlayerAttack(object player)
@@ -144,6 +148,16 @@ namespace JConradOOPProject.ViewModels
         bool CanRun(object player)
         {
             return true;
+        }
+
+        void UpdateHealth(Creature attacker, Creature attacked)
+        {
+            int damage = attacker.HitPower() - attacked.DefencePower;
+            attacked.Health -= damage;
+        }
+        bool CreatureIsHit(Creature creature, Weapon weapon)
+        {
+            return GameObject.Overlap(creature, weapon);
         }
     }
 }

@@ -45,5 +45,13 @@
         {
             return base.ToString();
         }
+        public override int Power
+        {
+            get
+            {
+                return HitPoints;
+            }
+            
+        }
     }
 }

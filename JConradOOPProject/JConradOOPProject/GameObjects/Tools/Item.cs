@@ -6,7 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
-    public abstract class Item
+    public abstract class Item : GameObject
     {
         //fields
         private string name;
