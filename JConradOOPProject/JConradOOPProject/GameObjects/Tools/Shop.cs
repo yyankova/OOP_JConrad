@@ -63,10 +63,7 @@
             Items.Add(new ChainArmour("Chain Armour", 125));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new Shield("Shield", 95));
-            Items.Last().Description = "TODO: add description";
-
-            Items.Add(new Shield("Sweat Cloth", 85));
+            Items.Add(new SweatCloth("Sweat Cloth", 85));
             Items.Last().Description = "TODO: add description";
 
             //stock weapons
