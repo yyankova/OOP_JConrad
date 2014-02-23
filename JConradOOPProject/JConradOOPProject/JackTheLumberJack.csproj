@@ -57,6 +57,7 @@
     <Compile Include="Commands\RelayCommand.cs" />
     <Compile Include="Enumerations\EquipmentType.cs" />
     <Compile Include="GameObjects\Creatures\Lumberjack.cs" />
+    <Compile Include="GameObjects\Creatures\LumberjackInventory.cs" />
     <Compile Include="GameObjects\Tools\ListOfTools.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
     <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
