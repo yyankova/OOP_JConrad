@@ -55,6 +55,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Commands\RelayCommand.cs" />
+    <Compile Include="Enumerations\EquipmentType.cs" />
     <Compile Include="GameObjects\Creatures\Lumberjack.cs" />
     <Compile Include="GameObjects\Tools\ListOfTools.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
@@ -140,7 +141,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="ClassDiagram\" />
-    <Folder Include="Enumerations\" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
