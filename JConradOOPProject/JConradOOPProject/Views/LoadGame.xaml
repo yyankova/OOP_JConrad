@@ -6,10 +6,10 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700">
     <UserControl.Resources>
-        <Style x:Key="tableLayoutStatic" TargetType="{x:Type ListBoxItem}">
+        <!--<Style x:Key="tableLayoutStatic" TargetType="{x:Type ListBoxItem}">
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="17" />
-        </Style>
+        </Style>-->
     </UserControl.Resources>
     <Grid>
         <!--<TextBlock><Run Text="Load Game"/></TextBlock>-->

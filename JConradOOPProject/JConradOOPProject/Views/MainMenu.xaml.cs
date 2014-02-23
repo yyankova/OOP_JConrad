@@ -32,9 +32,19 @@ namespace JConradOOPProject.Views
         /// Switches the content of main menu by given UserControl
         /// </summary>
         /// <param name="newContent"></param>
-        public static void SwitchWindowContent(UserControl newContent)
+        public static void SwitchWindowContent(UserControl newContent, bool removeCredits = false)
         {
             MainMenu accessMasterWindow = Application.Current.MainWindow as MainMenu;
+
+            // Removes credits
+            if (removeCredits)
+            {
+                accessMasterWindow.Credits.Visibility = Visibility.Hidden;
+            }
+            else if (accessMasterWindow.Credits.Visibility == Visibility.Hidden)
+            {
+                accessMasterWindow.Credits.Visibility = Visibility.Visible;
+            }
 
             // Clears the current content of the window
             accessMasterWindow.ContentSwitcher.Children.Clear();

@@ -34,14 +34,20 @@ namespace JConradOOPProject.Views
             {
                 Regex alphanumeric = new Regex("^[a-zA-Z0-9]*$");
 
-                if (value != DEFAULT_TXTFIELD_TEXT && value != String.Empty && alphanumeric.IsMatch(value) && value.Length >= 3 && value.Length <= 25)
+                if (value == DEFAULT_TXTFIELD_TEXT || value == String.Empty)
                 {
-                    this.playerName = value;
+                    throw new ArgumentException("Please enter a name!");
                 }
-                else
+                else if (!alphanumeric.IsMatch(value))
                 {
-                    MessageBox.Show("Please enter a valid name. It can consists\nonly the following symbols: a-z, A-Z, 0-9\n(Length: 3-25)", "Oops!");
+                    throw new ArgumentException("The name can contain only the following symbols: a-z, A-Z, 0-9");
                 }
+                else if (!(value.Length >= 3 && value.Length <= 25))
+                {
+                    throw new ArgumentException("The lengths of the name must be between 3 and 25 symbols.");
+                }
+
+                this.playerName = value;
             }
         }
 
@@ -72,14 +78,31 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonStart_Click(object sender, RoutedEventArgs e)
         {
-            this.PlayerName = this.NewGameName.Text;
+            try
+            {
+                this.PlayerName = this.NewGameName.Text;
 
-            // Test value
-            MessageBox.Show(this.PlayerName, "Printing NewGame.PlayerName");
+                // New Game intro >>
+
+                PushIntroAction continueAction = delegate()
+                {
+                    MainMenu.SwitchWindowContent(new GameMap(), true);
+                };
+
+                MainMenu.SwitchWindowContent(new Intro("newgame_intro.jpg", "Somekind of description", continueAction), true);
+            }
+            catch (ArgumentException ex)
+            {
+                MessageBox.Show(ex.Message, "Invalid name");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Fatal error");
+            }
         }
 
         /// <summary>
-        /// 
+        /// Clears the default content of the textbox on focus.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>

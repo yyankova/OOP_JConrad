@@ -111,7 +111,7 @@ namespace JConradOOPProject.Views
         }
 
         /// <summary>
-        /// 
+        /// Apply TextBlock style (programatically)
         /// </summary>
         /// <param name="target"></param>
         private void AddListBoxStyle(params TextBlock[] targets)
@@ -121,10 +121,6 @@ namespace JConradOOPProject.Views
                 item.FontSize = 17;
                 item.Foreground = new SolidColorBrush(Colors.White);
             }
-        }
-
-        private void AddSavedGames()
-        {
         }
     }
 }
