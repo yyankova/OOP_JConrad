@@ -62,7 +62,6 @@
     <Compile Include="GameObjects\Creatures\ForestGhost.cs" />
     <Compile Include="GameObjects\Creatures\Lumberjack.cs" />
     <Compile Include="GameObjects\Creatures\LumberjackInventory.cs" />
-    <Compile Include="GameObjects\Tools\ListOfTools.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
     <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
     <Compile Include="GameObjects\Tools\Shields\Shield.cs" />
@@ -158,6 +157,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
