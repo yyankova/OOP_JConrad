@@ -12,16 +12,26 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         private byte levelOfSkill;
         private bool alwaysHit;
         private decimal damageCoeff;
+        private decimal hitRateCoeff;
 
         //constructors
         public Attack(byte id, string inputName, decimal inputPrice)
             : base(id, inputName, inputPrice)
-        { }
+        {
+            this.HitRateCoeff = 1.0m;
+        }
+
+        public Attack(byte id, string inputName, decimal inputPrice, decimal hitRate)
+            : base(id, inputName, inputPrice)
+        {
+            this.HitRateCoeff = hitRate;
+        }
 
         public Attack(byte id, string inputName, decimal inputPrice, byte inputLevel)
             : base(id, inputName, inputPrice)
         {
             this.levelOfSkill = inputLevel;
+            this.HitRateCoeff = 1.0m;
         }
 
         //properties
@@ -46,6 +56,18 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
             set
             {
                 this.damageCoeff = value;
+            }
+        }
+
+        public decimal HitRateCoeff
+        {
+            get
+            {
+                return this.hitRateCoeff;
+            }
+            set
+            {
+                this.hitRateCoeff = value;
             }
         }
 
