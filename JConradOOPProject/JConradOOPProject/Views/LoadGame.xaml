@@ -6,27 +6,34 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="700">
     <UserControl.Resources>
-        <!--<Style x:Key="tableLayoutStatic" TargetType="{x:Type ListBoxItem}">
-            <Setter Property="Foreground" Value="White" />
-            <Setter Property="FontSize" Value="17" />
-        </Style>-->
+        <Style TargetType="{x:Type ListBoxItem}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <StackPanel Name="PlayerStack" Background="RosyBrown" Orientation="Horizontal">
+                            <TextBlock Name="PlayerName" FontSize="17" Width="590" Text="{Binding Name}" />
+                            <TextBlock Name="PlayerLevel" FontSize="17" Width="100" Text="{Binding Level} + LVL" />
+                        </StackPanel>
+
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="PlayerStack" Property="Background" Value="Gray" />
+                                <Setter TargetName="PlayerStack" Property="Cursor" Value="Hand" />
+                            </Trigger>
+                            <Trigger Property="IsFocused" Value="True">
+                                <Setter TargetName="PlayerStack" Property="Background" Value="Blue" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </UserControl.Resources>
     <Grid>
         <!--<TextBlock><Run Text="Load Game"/></TextBlock>-->
         <StackPanel Orientation="Vertical" VerticalAlignment="Center">
             <ListBox Name="SavedGamesList" Width="700" Height="400" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                <ListBox.Resources>
-                    <Style TargetType="{x:Type StackPanel}">
-                        <Setter Property="Orientation" Value="Horizontal" />
-                        <Setter Property="Background" Value="Black" />
-                        <Setter Property="Height" Value="30" />
-                    </Style>
-                    <Style TargetType="ListBox">
-                        <Setter Property="Opacity" Value="0.8" />
-                        <Setter Property="Background" Value="Brown" />
-                    </Style>
-                </ListBox.Resources>
-                <!---->
+                <!-- Dynamic Content -->
             </ListBox>
             <Canvas Width="700">
                 <StackPanel Orientation="Horizontal">
