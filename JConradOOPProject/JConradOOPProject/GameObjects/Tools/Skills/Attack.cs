@@ -11,6 +11,7 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         //fields
         private byte levelOfSkill;
         private bool alwaysHit;
+        private decimal damageCoeff;
 
         //constructors
         public Attack(string inputName, decimal inputPrice)
@@ -33,6 +34,18 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
             set 
             {
                 this.alwaysHit = true;
+            }
+        }
+
+        public decimal DamageCoeff
+        {
+            get
+            {
+                return this.damageCoeff;
+            }
+            set
+            {
+                this.damageCoeff = value;
             }
         }
 

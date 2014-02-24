@@ -10,6 +10,7 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
     {
         //fields
         private byte levelOfSkill;
+        private decimal defenceCoeff;
 
         //constructors
         public Defence(string inputName, decimal inputPrice)
@@ -23,7 +24,12 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         }
 
         //properties
-        
+        public decimal DefenceCoeff
+        {
+            get { return this.defenceCoeff; }
+            set { this.defenceCoeff = value; }
+
+        }
 
         //methods
 
