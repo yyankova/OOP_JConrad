@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.GameObjects.Tools.Skills
 {
-    class Defence : Skill
+    class oldDefence : Skill
     {
         //fields
         private byte levelOfSkill;
         private decimal defenceCoeff;
 
         //constructors
-        public Defence(byte id, string inputName, decimal inputPrice)
+        public oldDefence(byte id, string inputName, decimal inputPrice)
             : base(id, inputName, inputPrice)
         { }
 
-        public Defence(byte id, string inputName, decimal inputPrice, byte inputLevel)
+        public oldDefence(byte id, string inputName, decimal inputPrice, byte inputLevel)
             : base(id, inputName, inputPrice)
         {
             this.levelOfSkill = inputLevel;

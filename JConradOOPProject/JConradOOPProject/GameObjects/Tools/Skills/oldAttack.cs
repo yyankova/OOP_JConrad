@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.GameObjects.Tools.Skills
 {
-    class Attack : Skill
+    class oldAttack : Skill
     {
         //fields
         private byte levelOfSkill;
@@ -15,19 +15,19 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         private decimal hitRateCoeff;
 
         //constructors
-        public Attack(byte id, string inputName, decimal inputPrice)
+        public oldAttack(byte id, string inputName, decimal inputPrice)
             : base(id, inputName, inputPrice)
         {
             this.HitRateCoeff = 1.0m;
         }
 
-        public Attack(byte id, string inputName, decimal inputPrice, decimal hitRate)
+        public oldAttack(byte id, string inputName, decimal inputPrice, decimal hitRate)
             : base(id, inputName, inputPrice)
         {
             this.HitRateCoeff = hitRate;
         }
 
-        public Attack(byte id, string inputName, decimal inputPrice, byte inputLevel)
+        public oldAttack(byte id, string inputName, decimal inputPrice, byte inputLevel)
             : base(id, inputName, inputPrice)
         {
             this.levelOfSkill = inputLevel;

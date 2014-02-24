@@ -83,10 +83,10 @@
             Items.Last().Description = "TODO: add description";
 
             //stock skills
-            Items.Add(new Attack(8, "Attack", 100));
+            Items.Add(new oldAttack(8, "oldAttack", 100));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new Defence(9, "Defense", 100));
+            Items.Add(new oldDefence(9, "Defense", 100));
             Items.Last().Description = "TODO: add description";
         }
 
