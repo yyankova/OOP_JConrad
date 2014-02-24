@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JConradOOPProject.ViewModels;
 
 namespace JConradOOPProject.Views
 {
@@ -23,6 +24,7 @@ namespace JConradOOPProject.Views
     {
         const string DEFAULT_TXTFIELD_TEXT = "Enter your name";
         private string playerName;
+        private GameEngine gameEngine;
 
         /// <summary>
         /// playerName property
@@ -57,6 +59,8 @@ namespace JConradOOPProject.Views
 
             this.NewGameName.Text = DEFAULT_TXTFIELD_TEXT;
             this.playerName = String.Empty;
+
+            gameEngine = new GameEngine();
         }
 
         /// <summary>
@@ -86,7 +90,7 @@ namespace JConradOOPProject.Views
 
                 PushIntroAction continueAction = delegate()
                 {
-                    MainMenu.SwitchWindowContent(new GameMap(), true);
+                    MainMenu.SwitchWindowContent(new GameMap(this.gameEngine), true);
                 };
 
                 MainMenu.SwitchWindowContent(new Intro("newgame_intro.jpg", "Somekind of description", continueAction), true);

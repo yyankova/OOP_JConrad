@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JConradOOPProject.ViewModels;
 
 namespace JConradOOPProject.Views
 {
@@ -25,22 +26,28 @@ namespace JConradOOPProject.Views
     /// </summary>
     public partial class Equipment : UserControl
     {
+        private GameEngine parent;
         private List<Item> inventory;
         private List<Skill> skills;
         private List<Item> shop;
 
-        public Equipment()
+        public Equipment(GameEngine parent)
         {
             InitializeComponent();
+            this.parent = parent;
+            byte id = 0;
 
-            List<InventoryItem> items = new List<InventoryItem>
-            {
-                new InventoryItem(2, "Qnko", "A description a description a description", 12, "item"),
-                new InventoryItem(3, "Pesho", "A description a description a description", 50, "item"),
-                new InventoryItem(4, "Dinko", "A description a description a description", 90, "item"),
-            };
+            List<Item> inventory = new List<Item>();
+            inventory.Add(new Axe(id++, "Axe", inputPrice: 65, imageSource: "item"));
+            inventory.Last().Description = "TODO: add some description of Axe. to change image";
 
-            Inventory.ItemsSource = items;
+            inventory.Add(new Chopper(id++, "Chopper", inputPrice: 100, imageSource: "item"));
+            inventory.Last().Description = "TODO: add description of Chopper, to change image";
+
+            inventory.Add(new Cutter(id++, "Cutter", inputPrice: 200, imageSource: "item"));
+            inventory.Last().Description = "TODO: add description of Cutter, to change image";
+
+            Inventory.ItemsSource = inventory;
         }
 
         /// <summary>
@@ -50,7 +57,7 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
-            byte selected = ((InventoryItem) this.Inventory.SelectedItem).ItemId;
+            byte selected = ((Item) this.Inventory.SelectedItem).IdItem;
 
             MessageBox.Show(selected.ToString());
         }
@@ -63,7 +70,7 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu.SwitchWindowContent(new GameMap(), true);
+            MainMenu.SwitchWindowContent(new GameMap(this.parent), true);
         }
 
         /// <summary>

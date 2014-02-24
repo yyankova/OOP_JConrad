@@ -52,7 +52,6 @@
         /// </summary>
         public Shop()
         {
-            Console.WriteLine("Constructing shop");
             items = new List<Item>();
 
             //TODO: cenite na ajtymite da se syobrazqt s harakteristikite im!

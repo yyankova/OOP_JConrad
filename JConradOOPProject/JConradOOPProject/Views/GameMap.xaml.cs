@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using JConradOOPProject.ViewModels;
 
 namespace JConradOOPProject.Views
 {
@@ -20,9 +21,11 @@ namespace JConradOOPProject.Views
     /// </summary>
     public partial class GameMap : UserControl
     {
-        public GameMap()
+        private GameEngine parent;
+        public GameMap(GameEngine parent)
         {
             InitializeComponent();
+            this.parent = parent;
         }
 
         /// <summary>
@@ -44,7 +47,7 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonEquipment_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu.SwitchWindowContent(new Equipment(), true);
+            MainMenu.SwitchWindowContent(new Equipment(this.parent), true);
         }
     }
 }

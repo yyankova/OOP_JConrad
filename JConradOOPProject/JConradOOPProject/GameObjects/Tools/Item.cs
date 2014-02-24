@@ -31,7 +31,7 @@
             this.IdItem = id;
             this.Name = inputName;
             this.Price = inputPrice;
-            this.ImageSource = imageSource;
+            this.ImageSource = "../Images/Items/" + imageSource + ".png";
         }
 
         //properties
