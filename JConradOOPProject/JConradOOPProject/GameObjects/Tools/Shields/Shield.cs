@@ -5,13 +5,13 @@
         public Shield()
         { }
 
-        public Shield(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public Shield(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public Shield(string inputName, decimal inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public Shield(byte id, string inputName, decimal inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
     }

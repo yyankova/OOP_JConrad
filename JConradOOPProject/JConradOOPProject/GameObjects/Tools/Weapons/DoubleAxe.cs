@@ -20,18 +20,18 @@
             : base()
         { }
 
-        public DoubleAxe(string inputName, int inputPrice)
-            : base(inputName, inputPrice)
+        public DoubleAxe(byte id, string inputName, int inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public DoubleAxe(string inputName, int inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public DoubleAxe(byte id, string inputName, int inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
 
-        public DoubleAxe(string inputName, decimal inputPrice, int inputSharpness)
-            : base(inputName, inputPrice)
+        public DoubleAxe(byte id, string inputName, decimal inputPrice, int inputSharpness)
+            : base(id, inputName, inputPrice)
         {
             this.DoubleAxeHeadSharpness = inputSharpness;
         }

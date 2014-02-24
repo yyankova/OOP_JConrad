@@ -15,16 +15,16 @@
         private int cutterSpeed;
 
         //constructors
-        public Cutter(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public Cutter(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         { }
 
-        public Cutter(string inputName, decimal inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public Cutter(byte id, string inputName, decimal inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         { }
 
-        public Cutter(string inputName, decimal inputPrice, int inputSpeed)
-            : base(inputName, inputPrice)
+        public Cutter(byte id, string inputName, decimal inputPrice, int inputSpeed)
+            : base(id, inputName, inputPrice)
         {
             this.CutterSpeed = inputSpeed;
         }

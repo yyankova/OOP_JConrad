@@ -14,12 +14,12 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         private decimal damageCoeff;
 
         //constructors
-        public Attack(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public Attack(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         { }
 
-        public Attack(string inputName, decimal inputPrice, byte inputLevel)
-            : base(inputName, inputPrice)
+        public Attack(byte id, string inputName, decimal inputPrice, byte inputLevel)
+            : base(id, inputName, inputPrice)
         {
             this.levelOfSkill = inputLevel;
         }

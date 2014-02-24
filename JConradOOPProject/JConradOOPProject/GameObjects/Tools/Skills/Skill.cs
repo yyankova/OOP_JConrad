@@ -8,8 +8,8 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
 {
     public abstract class Skill : Item
     {
-        public Skill(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public Skill(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         { }
     }
 }

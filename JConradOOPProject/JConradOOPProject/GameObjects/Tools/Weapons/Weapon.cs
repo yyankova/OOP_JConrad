@@ -12,13 +12,13 @@
 
         public Weapon()
         { }
-        public Weapon(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public Weapon(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public Weapon(string inputName, decimal inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public Weapon(byte id, string inputName, decimal inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
 

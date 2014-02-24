@@ -19,13 +19,13 @@
             : base()
         { }
 
-        public Knife(string inputName, int inputPrice)
-            : base(inputName, inputPrice)
+        public Knife(byte id, string inputName, int inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public Knife(string inputName, int inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public Knife(byte id, string inputName, int inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
         

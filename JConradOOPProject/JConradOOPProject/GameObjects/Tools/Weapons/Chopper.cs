@@ -15,13 +15,13 @@
             : base()
         { }
 
-        public Chopper(string inputName, int inputPrice)
-            : base(inputName, inputPrice)
+        public Chopper(byte id, string inputName, int inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public Chopper(string inputName, int inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public Chopper(byte id, string inputName, int inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
         

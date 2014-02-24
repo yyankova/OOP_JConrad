@@ -13,12 +13,12 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         private decimal defenceCoeff;
 
         //constructors
-        public Defence(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public Defence(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         { }
 
-        public Defence(string inputName, decimal inputPrice, byte inputLevel)
-            : base(inputName, inputPrice)
+        public Defence(byte id, string inputName, decimal inputPrice, byte inputLevel)
+            : base(id, inputName, inputPrice)
         {
             this.levelOfSkill = inputLevel;
         }

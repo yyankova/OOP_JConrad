@@ -9,6 +9,7 @@
     public abstract class Item : GameObject
     {
         //fields
+        private byte idItem;
         private string name;
         private decimal price;
         private string description;
@@ -18,20 +19,28 @@
         public Item()
         { }
 
-        public Item(string inputName, decimal inputPrice)
+        public Item(byte id, string inputName, decimal inputPrice)
         {
+            this.IdItem = id;
             this.Name = inputName;
             this.Price = inputPrice;
         }
 
-        public Item(string inputName, decimal inputPrice, string imageSource)
+        public Item(byte id, string inputName, decimal inputPrice, string imageSource)
         {
+            this.IdItem = id;
             this.Name = inputName;
             this.Price = inputPrice;
             this.ImageSource = imageSource;
         }
 
         //properties
+        public byte IdItem
+        {
+            get { return this.idItem; }
+            set { this.idItem = value; }
+        }
+
         public string Name
         {
             get { return this.name; }

@@ -60,33 +60,33 @@
             //TODO: remove the above comment !
 
             //stock shields
-            Items.Add(new ChainArmour("Chain Armour", 125));
+            Items.Add(new ChainArmour(1, "Chain Armour", 125));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new SweatCloth("Sweat Cloth", 85));
+            Items.Add(new SweatCloth(2, "Sweat Cloth", 85));
             Items.Last().Description = "TODO: add description";
 
             //stock weapons
-            Items.Add(new Axe("Axe", 65));
+            Items.Add(new Axe(3, "Axe", 65));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new Chopper("Chopper", 100));
+            Items.Add(new Chopper(4, "Chopper", 100));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new Cutter("Cutter", 100));
+            Items.Add(new Cutter(5, "Cutter", 100));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new DoubleAxe("Double Axe", 100));
+            Items.Add(new DoubleAxe(6, "Double Axe", 100));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new Knife("Knifes", 100));
+            Items.Add(new Knife(7, "Knifes", 100));
             Items.Last().Description = "TODO: add description";
 
             //stock skills
-            Items.Add(new Attack("Attack", 100));
+            Items.Add(new Attack(8, "Attack", 100));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new Defence("Defense", 100));
+            Items.Add(new Defence(9, "Defense", 100));
             Items.Last().Description = "TODO: add description";
         }
 

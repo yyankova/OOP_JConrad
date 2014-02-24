@@ -20,13 +20,13 @@
             : base()
         { }
 
-        public ChainArmour(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public ChainArmour(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public ChainArmour(string inputName, decimal inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public ChainArmour(byte id, string inputName, decimal inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
 

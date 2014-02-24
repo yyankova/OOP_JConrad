@@ -20,18 +20,18 @@
             : base()
         { }
 
-        public Axe(string inputName, int inputPrice)
-            : base(inputName, inputPrice)
+        public Axe(byte id, string inputName, int inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public Axe(string inputName, int inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public Axe(byte id, string inputName, int inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
 
-        public Axe(string inputName, decimal inputPrice, int inputSharpness)
-            : base(inputName, inputPrice)
+        public Axe(byte id, string inputName, decimal inputPrice, int inputSharpness)
+            : base(id, inputName, inputPrice)
         {
             this.AxeHeadSharpness = inputSharpness;
         }

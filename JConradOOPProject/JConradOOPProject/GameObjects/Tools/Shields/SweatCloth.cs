@@ -20,13 +20,13 @@
             : base()
         { }
 
-        public SweatCloth(string inputName, decimal inputPrice)
-            : base(inputName, inputPrice)
+        public SweatCloth(byte id, string inputName, decimal inputPrice)
+            : base(id, inputName, inputPrice)
         {
         }
 
-        public SweatCloth(string inputName, decimal inputPrice, string imageSource)
-            : base(inputName, inputPrice, imageSource)
+        public SweatCloth(byte id, string inputName, decimal inputPrice, string imageSource)
+            : base(id, inputName, inputPrice, imageSource)
         {
         }
 
