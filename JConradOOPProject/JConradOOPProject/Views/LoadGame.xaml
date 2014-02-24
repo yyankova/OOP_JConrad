@@ -12,7 +12,7 @@
                     <ControlTemplate>
                         <StackPanel Name="PlayerStack" Background="RosyBrown" Orientation="Horizontal">
                             <TextBlock Name="PlayerName" FontSize="17" Width="590" Text="{Binding Name}" />
-                            <TextBlock Name="PlayerLevel" FontSize="17" Width="100" Text="{Binding Level} + LVL" />
+                            <TextBlock Name="PlayerLevel" FontSize="17" Width="100" Text="{Binding Level}" />
                         </StackPanel>
 
                         <ControlTemplate.Triggers>

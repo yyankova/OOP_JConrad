@@ -33,9 +33,9 @@ namespace JConradOOPProject.Views
 
             List<InventoryItem> items = new List<InventoryItem>
             {
-                new InventoryItem(2, "Qnko", 12, "item"),
-                new InventoryItem(3, "Pesho", 50, "item"),
-                new InventoryItem(4, "Dinko", 90, "item"),
+                new InventoryItem(2, "Qnko", "A description a description a description", 12, "item"),
+                new InventoryItem(3, "Pesho", "A description a description a description", 50, "item"),
+                new InventoryItem(4, "Dinko", "A description a description a description", 90, "item"),
             };
 
             Inventory.ItemsSource = items;
@@ -48,9 +48,9 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
-            InventoryItem selected = (InventoryItem) this.Inventory.SelectedItem;
+            byte selected = ((InventoryItem) this.Inventory.SelectedItem).ItemId;
 
-            MessageBox.Show(selected.Uid.ToString());
+            MessageBox.Show(selected.ToString());
         }
 
         /// <summary>
@@ -68,16 +68,18 @@ namespace JConradOOPProject.Views
     // To be deleted
     public class InventoryItem
     {
-        public ushort Uid { get; set; }
-        public string Title { get; set; }
-        public int Completion { get; set; }
+        public byte ItemId { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int SpecialValue { get; set; }
         public string Image { get; set; }
 
-        public InventoryItem(ushort uid, string title, int completion, string image)
+        public InventoryItem(byte id, string name, string completion, int specialValue, string image)
         {
-            this.Uid = uid;
-            this.Title = title;
-            this.Completion = completion;
+            this.ItemId = id;
+            this.Name = name;
+            this.Description = completion;
+            this.SpecialValue = specialValue;
             this.Image = "../Images/Items/" + image + ".png";
         }
     }

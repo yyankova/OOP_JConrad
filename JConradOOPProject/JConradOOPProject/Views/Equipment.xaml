@@ -13,26 +13,39 @@
                 <Setter Property="Height" Value="330" />
                 <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
                 <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
-                <Setter Property="Background" Value="Brown" />
+                <Setter Property="Background" Value="#412c11" />
+                <Setter Property="BorderBrush" Value="#1c0c07" />
             </Style>
             
             <Style x:Key="inventory-layout" TargetType="{x:Type ListBoxItem}">
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate>
-                            <StackPanel Name="ItemStack" Background="RosyBrown" Orientation="Horizontal" Height="50">
-                            <Image Name="ItemImage" Width="40" Height="40" Source="{Binding Image}" />
-                            <TextBlock Name="ItemName" Text="{Binding Title}" />
-                                <TextBlock Name="ItemDescription" Text="{Binding Completion}" />
+
+                            <StackPanel Name="ItemStack" Background="#e1a95c" Margin="0,0,0,2" Orientation="Horizontal" Height="70">
+                                <DockPanel Width="650">
+                                    <Image Name="ItemImage" Width="50" Height="50" Margin="10,0,0,0" Source="{Binding Image}" />
+                                    <StackPanel Orientation="Vertical" Margin="10,10,0,0">
+                                        <TextBlock Name="ItemName" FontFamily="Arial" FontWeight="Bold" Foreground="#412c11" Text="{Binding Name}" />
+                                        <TextBlock Name="ItemDescription" FontSize="11" Foreground="#634927" Text="{Binding Description}" />
+                                        <TextBlock Name="ItemSpecialValue" FontWeight="Bold" Foreground="#4ead08" Text="{Binding SpecialValue}">
+                                            <TextBlock.Effect>
+                                                <DropShadowEffect ShadowDepth="1" Direction="270" Color="Black" Opacity="1.0" BlurRadius="1" />
+                                            </TextBlock.Effect>
+                                        </TextBlock>
+                                    </StackPanel>
+                                    <TextBlock TextAlignment="Right" Margin="0,0,15,0" FontSize="17" Foreground="#265702" Text="Equipped" VerticalAlignment="Center" Visibility="Visible" />
+                                </DockPanel>
                             </StackPanel>
-                            
+                        
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter TargetName="ItemStack" Property="Background" Value="Gray" />
+                                <Setter TargetName="ItemStack" Property="Background" Value="#f2ba6e" />
                                     <Setter TargetName="ItemStack" Property="Cursor" Value="Hand" />
                                 </Trigger>
                                 <Trigger Property="IsFocused" Value="True">
-                                    <Setter TargetName="ItemStack" Property="Background" Value="Azure" />
+                                    <Setter TargetName="ItemStack" Property="Background" Value="#dc8d1f" />
+                                    <Setter TargetName="ItemDescription" Property="Foreground" Value="#412c11" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -44,28 +57,34 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TabItem}">
-                            <Grid>
-                                <Border Name="TabBorder" Background="Purple" BorderBrush="Aqua" BorderThickness="1 1 1 0" CornerRadius="5,5,0,0" SnapsToDevicePixels="True">
-                                    <TextBlock Name="TabText" Foreground="White" FontSize="16">
-                                        <ContentPresenter Name="TabContent" HorizontalAlignment="Center" Margin="92,10,92,10" VerticalAlignment="Center" ContentSource="Header" />
-                                    </TextBlock>
-                                </Border>
-                            </Grid>
+
+                            <Border Name="TabBorder" Background="#462e0d" BorderBrush="#402c10" BorderThickness="2 2 2 0" CornerRadius="5,5,0,0" SnapsToDevicePixels="True">
+                                <TextBlock Name="TabText" Foreground="White" FontSize="16">
+                                    <ContentPresenter Name="TabContent" HorizontalAlignment="Center" Margin="91,10,91,10" VerticalAlignment="Center" ContentSource="Header" />
+                                </TextBlock>
+                            </Border>
+
                             <ControlTemplate.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter TargetName="TabBorder" Property="Cursor" Value="Hand" />
-                                    <Setter TargetName="TabBorder" Property="Background" Value="Gray" />
+                                <Setter TargetName="TabBorder" Property="Background" Value="#a6660b" />
                                 </Trigger>
                                 <Trigger Property="IsSelected" Value="True">
-                                    <Setter TargetName="TabBorder" Property="Background" Value="Red" />
+                                    <Setter TargetName="TabBorder" Property="Background" Value="#5c4018" />
                                 </Trigger>
                             </ControlTemplate.Triggers>
+                            
                         </ControlTemplate>
                     </Setter.Value>
                 </Setter>
             </Style>
             
             <Style TargetType="{x:Type TabControl}">
+                <!--<Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect ShadowDepth="3" Direction="270" Color="Black" Opacity="0.3" BlurRadius="5" />
+                    </Setter.Value>
+                </Setter>-->
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TabControl}">
@@ -78,29 +97,27 @@
                                 <TabPanel x:Name="HeaderPanel"
                                   Grid.Row="0"
                                   Panel.ZIndex="1"
-                                  Margin="0,0,4,-1"
+                                  Margin="0,0,4,-2"
                                   IsItemsHost="True"
                                   KeyboardNavigation.TabIndex="1"
                                   Background="Transparent" />
 
                                 <Border x:Name="Border"
                                 Grid.Row="1"
-                                BorderThickness="1"
+                                BorderThickness="2"
                                 KeyboardNavigation.TabNavigation="Local"
                                 KeyboardNavigation.DirectionalNavigation="Contained"
                                 KeyboardNavigation.TabIndex="2">
 
                                     <Border.Background>
-                                        <SolidColorBrush Color="Red"/>
+                                        <SolidColorBrush Color="#5c4018"/>
                                     </Border.Background>
 
                                     <Border.BorderBrush>
-                                        <SolidColorBrush Color="Aqua"/>
+                                        <SolidColorBrush Color="#402c10"/>
                                     </Border.BorderBrush>
 
-                                    <ContentPresenter x:Name="PART_SelectedContentHost"
-                                              Margin="4"
-                                              ContentSource="SelectedContent" />
+                                    <ContentPresenter x:Name="PART_SelectedContentHost" Margin="4" ContentSource="SelectedContent" />
                                 </Border>
                             </Grid>
                         </ControlTemplate>
@@ -111,19 +128,21 @@
     <Grid>
         <Image Source="../Images/equipment_menu.jpg" Stretch="Fill" />
         <TabControl HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="450">
+            
             <TabItem Header="Inventory">
                 <Grid VerticalAlignment="Center">
                     <StackPanel Orientation="Vertical">
                         <ListBox Name="Inventory">
-                        <ListBox.Resources>
-                            <Style BasedOn="{StaticResource inventory-layout}" TargetType="{x:Type ListBoxItem}" />
-                        </ListBox.Resources>
-                        <!-- Dynamic Generation -->
+                            <ListBox.Resources>
+                                <Style BasedOn="{StaticResource inventory-layout}" TargetType="{x:Type ListBoxItem}" />
+                            </ListBox.Resources>
+                            <!-- Dynamic Generation -->
                         </ListBox>
                         <Button Content="Use" HorizontalAlignment="Right" Click="ButtonUse_Click" />
                     </StackPanel>
                 </Grid>
             </TabItem>
+            
             <TabItem Header="Skills">
 
             </TabItem>
