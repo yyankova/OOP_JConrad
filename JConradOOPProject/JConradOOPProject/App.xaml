@@ -39,5 +39,8 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="default-font" TargetType="{x:Type TextBlock}">
+            <Setter Property="TextBlock.FontFamily" Value="Fonts/#Caricaturista" />
+        </Style>
     </Application.Resources>
 </Application>

@@ -24,7 +24,7 @@
 
                             <StackPanel Name="ItemStack" Background="#e1a95c" Margin="0,0,0,2" Orientation="Horizontal" Height="70">
                                 <DockPanel Width="650">
-                                    <Image Name="ItemImage" Width="50" Height="50" Margin="10,0,0,0" Source="{Binding Image}" />
+                                    <Image Name="ItemImage" Width="50" Height="50" Margin="10,0,0,0" Source="{Binding ImageSource}" />
                                     <StackPanel Orientation="Vertical" Margin="10,10,0,0">
                                         <TextBlock Name="ItemName" FontFamily="Arial" FontWeight="Bold" Foreground="#412c11" Text="{Binding Name}" />
                                         <TextBlock Name="ItemDescription" FontSize="11" Foreground="#634927" Text="{Binding Description}" />

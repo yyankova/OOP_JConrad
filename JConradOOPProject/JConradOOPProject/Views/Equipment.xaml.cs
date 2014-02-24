@@ -17,6 +17,8 @@ namespace JConradOOPProject.Views
 {
     using GameObjects.Tools;
     using GameObjects.Tools.Skills;
+    using GameObjects.Tools.Weapons;
+    using GameObjects.Tools.Shields;
 
     /// <summary>
     /// Interaction logic for Equipment.xaml
@@ -63,6 +65,37 @@ namespace JConradOOPProject.Views
         {
             MainMenu.SwitchWindowContent(new GameMap(), true);
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="items"></param>
+        //private void FillInventoryTab(List<InventoryItem> items, Dictionary<string, int> equippedItems) // Change type afterwards.
+        //{
+        //    foreach (var item in items)
+        //    {
+        //        string specialValue = String.Empty;
+
+        //        if (item is Weapon)
+        //        {
+        //            specialValue = String.Concat(((Weapon)item.HitPoints), " Attack");
+        //        }
+        //        else if (item is Shield)
+        //        {
+        //            specialValue = String.Concat(((Shield) item).DefPoints, " Defence");
+        //        }
+                
+        //        //this.Inventory
+        //    }
+        //}
+
+        //private void FillSkillsTab(List<Skill> skills, Dictionary<string, int> usedSkills)
+        //{
+        //    foreach (Skill skill in skills)
+        //    {
+        //        string specialValue = String.Concat("Damage Coef: ", skill.DamageCoeff, skill.DefenceCoeff, " Defence Coef; ");
+        //    }
+        //}
     }
 
     // To be deleted
@@ -72,15 +105,15 @@ namespace JConradOOPProject.Views
         public string Name { get; set; }
         public string Description { get; set; }
         public int SpecialValue { get; set; }
-        public string Image { get; set; }
+        public string ImageSource { get; set; }
 
-        public InventoryItem(byte id, string name, string completion, int specialValue, string image)
+        public InventoryItem(byte id, string name, string description, int specialValue, string image)
         {
             this.ItemId = id;
             this.Name = name;
-            this.Description = completion;
+            this.Description = description;
             this.SpecialValue = specialValue;
-            this.Image = "../Images/Items/" + image + ".png";
+            this.ImageSource = "../Images/Items/" + image + ".png";
         }
     }
 }
