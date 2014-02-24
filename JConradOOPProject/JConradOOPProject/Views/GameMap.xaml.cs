@@ -35,5 +35,16 @@ namespace JConradOOPProject.Views
         {
             MainMenu.SwitchWindowContent(new StartMenu());
         }
+
+        /// <summary>
+        /// Button EQUIPMENT
+        /// Navigates to the equipment menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonEquipment_Click(object sender, RoutedEventArgs e)
+        {
+            MainMenu.SwitchWindowContent(new Equipment(), true);
+        }
     }
 }

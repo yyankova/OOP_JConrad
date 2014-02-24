@@ -13,9 +13,8 @@
                     <Style BasedOn="{StaticResource small-menu-button}" TargetType="{x:Type Button}" />
                 </StackPanel.Resources>
                 <Button Content="Exit" Click="ButtonExit_Click" />
-                <Button Content="Equipment" />
+                <Button Content="Equipment" Click="ButtonEquipment_Click" />
             </StackPanel>
         </Grid>
-        
     </Grid>
 </UserControl>
