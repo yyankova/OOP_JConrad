@@ -5,9 +5,41 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="1000">
-    <Grid>
-        <Grid.Resources>
+        <UserControl.Resources>
             <Style BasedOn="{StaticResource small-menu-button}" TargetType="{x:Type Button}" />
+            
+            <Style TargetType="{x:Type ListBox}">
+                <Setter Property="Width" Value="650" />
+                <Setter Property="Height" Value="330" />
+                <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto" />
+                <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
+                <Setter Property="Background" Value="Brown" />
+            </Style>
+            
+            <Style x:Key="inventory-layout" TargetType="{x:Type ListBoxItem}">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate>
+                            <StackPanel Name="ItemStack" Background="RosyBrown" Orientation="Horizontal" Height="50">
+                            <Image Name="ItemImage" Width="40" Height="40" Source="{Binding Image}" />
+                            <TextBlock Name="ItemName" Text="{Binding Title}" />
+                                <TextBlock Name="ItemDescription" Text="{Binding Completion}" />
+                            </StackPanel>
+                            
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="ItemStack" Property="Background" Value="Gray" />
+                                    <Setter TargetName="ItemStack" Property="Cursor" Value="Hand" />
+                                </Trigger>
+                                <Trigger Property="IsFocused" Value="True">
+                                    <Setter TargetName="ItemStack" Property="Background" Value="Azure" />
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+            
             <Style TargetType="{x:Type TabItem}">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -32,6 +64,7 @@
                     </Setter.Value>
                 </Setter>
             </Style>
+            
             <Style TargetType="{x:Type TabControl}">
                 <Setter Property="Template">
                     <Setter.Value>
@@ -74,32 +107,20 @@
                     </Setter.Value>
                 </Setter>
             </Style>
-        </Grid.Resources>
+        </UserControl.Resources>
+    <Grid>
         <Image Source="../Images/equipment_menu.jpg" Stretch="Fill" />
         <TabControl HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="450">
             <TabItem Header="Inventory">
                 <Grid VerticalAlignment="Center">
                     <StackPanel Orientation="Vertical">
-                        <ListBox Name="SavedGamesList" Width="650" Height="330" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
-                            <ListBox.Resources>
-                                <Style TargetType="{x:Type StackPanel}">
-                                    <Setter Property="Orientation" Value="Horizontal" />
-                                    <Setter Property="Background" Value="Black" />
-                                    <Setter Property="Height" Value="30" />
-                                </Style>
-                                <Style TargetType="ListBox">
-                                    <Setter Property="Background" Value="Brown" />
-                                </Style>
-                            </ListBox.Resources>
-                            <!---->
-                            <ListBoxItem>
-                                <StackPanel Orientation="Horizontal">
-                                    <TextBlock>Weapon 1</TextBlock>
-                                    <TextBlock>Weapon 2</TextBlock>
-                                </StackPanel>
-                            </ListBoxItem>
+                        <ListBox Name="Inventory">
+                        <ListBox.Resources>
+                            <Style BasedOn="{StaticResource inventory-layout}" TargetType="{x:Type ListBoxItem}" />
+                        </ListBox.Resources>
+                        <!-- Dynamic Generation -->
                         </ListBox>
-                        <Button Content="Use" HorizontalAlignment="Right" />
+                        <Button Content="Use" HorizontalAlignment="Right" Click="ButtonUse_Click" />
                     </StackPanel>
                 </Grid>
             </TabItem>

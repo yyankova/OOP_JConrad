@@ -28,9 +28,14 @@ namespace JConradOOPProject.Views
 
             // Testing purposes. Remove Later
 
-            AddSavedGameToList("Pesho", 25, 0xA);
-            AddSavedGameToList("Dinko", 10, 0xF);
-            AddSavedGameToList("Smesko", 15, 0x0);
+            List<Player> players = new List<Player>
+            {
+                new Player(0, "Pesho", 12),
+                new Player(1, "Dinko", 21),
+                new Player(2, "Zafir", 25)
+            };
+
+            this.SavedGamesList.ItemsSource = players;
 
             // Setting style of ListBoxItems
             //Style tableLayout = this.FindResource("tableLayoutStatic") as Style;
@@ -59,8 +64,7 @@ namespace JConradOOPProject.Views
                 return;
             }
 
-            string uIDText = ((StackPanel)this.SavedGamesList.SelectedItem).Name;
-            int uID = Int32.Parse(uIDText.Split('_')[1]);
+            byte uID = ((Player)this.SavedGamesList.SelectedItem).Id;
 
             // Assigns the ID
             this.playerUniqID = uID;
@@ -79,48 +83,20 @@ namespace JConradOOPProject.Views
         {
             MainMenu.SwitchWindowContent(new StartMenu());
         }
+    }
 
-        /// <summary>
-        /// Adds visual information about an existing player to the list in 'Load Game' from the saved files.
-        /// </summary>
-        /// <param name="playerName">Player name</param>
-        /// <param name="playerLevel">Player's current level</param>
-        /// <param name="uID">Unique ID used for reference</param>
-        private void AddSavedGameToList(string playerName, int playerLevel, int uID)
+    // To be deleted
+    public class Player
+    {
+        public byte Id { get; set; }
+        public string Name { get; set; }
+        public byte Level { get; set; }
+
+        public Player(byte playerId, string playerName, byte playerLvl)
         {
-            TextBlock name = new TextBlock(),
-                      level = new TextBlock();
-
-            StackPanel record = new StackPanel();
-
-            record.Name = String.Concat("UID_", uID);
-
-            name.Text = playerName;
-            level.Text = String.Concat(playerLevel, " LVL");
-
-            // Adding design
-            this.AddListBoxStyle(name, level);
-
-            name.Width = 590;
-            level.Width = 100;
-
-            record.Children.Add(name);
-            record.Children.Add(level);
-
-            this.SavedGamesList.Items.Add(record);
-        }
-
-        /// <summary>
-        /// Apply TextBlock style (programatically)
-        /// </summary>
-        /// <param name="target"></param>
-        private void AddListBoxStyle(params TextBlock[] targets)
-        {
-            foreach (TextBlock item in targets)
-            {
-                item.FontSize = 17;
-                item.Foreground = new SolidColorBrush(Colors.White);
-            }
+            this.Id = playerId;
+            this.Name = playerName;
+            this.Level = playerLvl;
         }
     }
 }
