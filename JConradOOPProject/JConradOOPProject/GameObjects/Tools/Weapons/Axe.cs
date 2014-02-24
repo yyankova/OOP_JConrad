@@ -12,7 +12,7 @@
         const int HitPoints = 100;
 
         // Fields
-        private int axeHeadSharpness;
+        private int axeHeadSharpness; //do not use it for now
         private ColorEnum color;
 
         // Constructors
@@ -32,7 +32,8 @@
         }
 
         //properties
-        public int AxeHeadSharpness
+
+        public int AxeHeadSharpness //do not use it for now
         {
             get 
             {

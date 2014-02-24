@@ -9,7 +9,7 @@
     public class Knife : Weapon
     {
          //constants 
-        const int HitPoints = 100;
+        const int HitPoints = 20;
 
         // Fields
         private ColorEnum color;
@@ -44,10 +44,7 @@
             }
 
         }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+
         public override int Power
         {
             get

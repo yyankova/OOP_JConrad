@@ -8,7 +8,6 @@
         const int HitPoints = 150;
 
         // Fields
-        private int axeHeadSharpness;
         private ColorEnum color;
 
         // Constructors
@@ -39,19 +38,14 @@
                     throw new Exception("Invalid color");
                 }                
             }
-
         }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+        
         public override int Power
         {
             get
             {
                 return HitPoints;
             }
-            
         }
     }
 }

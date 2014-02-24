@@ -9,7 +9,7 @@
     class Cutter : Weapon
     {
         //constants 
-        const int HitPoints = 150;
+        const int HitPoints = 200;
 
         //fields
         private int cutterSpeed;

@@ -9,10 +9,10 @@
     public class DoubleAxe : Weapon
     {
         //constants 
-        const int HitPoints = 100;
+        const int HitPoints = 120;
 
         // Fields
-        private int doubleAxeHeadSharpness;
+        private int doubleAxeHeadSharpness; //do not use it for now
         private ColorEnum color;
 
         // Constructors
@@ -32,7 +32,7 @@
         }
 
         //properties
-        public int DoubleAxeHeadSharpness
+        public int DoubleAxeHeadSharpness //do not use it for now
         {
             get 
             {
@@ -63,10 +63,7 @@
             }
 
         }
-        public override string ToString()
-        {
-            return base.ToString();
-        }
+
         public override int Power
         {
             get
