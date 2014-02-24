@@ -23,6 +23,11 @@
             : base(inputName, inputPrice)
         {
         }
+
+        public Knife(string inputName, int inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        {
+        }
         
         //properties        
         public ColorEnum Color

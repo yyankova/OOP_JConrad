@@ -19,6 +19,10 @@
             : base(inputName, inputPrice)
         { }
 
+        public Cutter(string inputName, decimal inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        { }
+
         public Cutter(string inputName, decimal inputPrice, int inputSpeed)
             : base(inputName, inputPrice)
         {

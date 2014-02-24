@@ -19,6 +19,11 @@
             : base(inputName, inputPrice)
         {
         }
+
+        public Chopper(string inputName, int inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        {
+        }
         
         //properties        
         public ColorEnum Color

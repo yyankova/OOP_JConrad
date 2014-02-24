@@ -12,6 +12,7 @@
         private string name;
         private decimal price;
         private string description;
+        private string imageSource;
 
         //constructors
         public Item()
@@ -21,6 +22,13 @@
         {
             this.Name = inputName;
             this.Price = inputPrice;
+        }
+
+        public Item(string inputName, decimal inputPrice, string imageSource)
+        {
+            this.Name = inputName;
+            this.Price = inputPrice;
+            this.ImageSource = imageSource;
         }
 
         //properties
@@ -43,6 +51,18 @@
                     throw new Exception("The price must be postive number.");
                 }
                 this.price = value; 
+            }
+        }
+
+        public string ImageSource
+        {
+            get
+            {
+                return this.imageSource;
+            }
+            set
+            {
+                this.imageSource = value;
             }
         }
 

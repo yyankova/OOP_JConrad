@@ -25,6 +25,11 @@
         {
         }
 
+        public SweatCloth(string inputName, decimal inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        {
+        }
+
         //properties
 
         public ColorEnum Color

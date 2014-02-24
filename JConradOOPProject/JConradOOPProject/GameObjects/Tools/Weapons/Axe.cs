@@ -25,6 +25,11 @@
         {
         }
 
+        public Axe(string inputName, int inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        {
+        }
+
         public Axe(string inputName, decimal inputPrice, int inputSharpness)
             : base(inputName, inputPrice)
         {

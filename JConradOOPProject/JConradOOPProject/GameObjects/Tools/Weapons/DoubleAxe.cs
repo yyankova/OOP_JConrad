@@ -25,6 +25,11 @@
         {
         }
 
+        public DoubleAxe(string inputName, int inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        {
+        }
+
         public DoubleAxe(string inputName, decimal inputPrice, int inputSharpness)
             : base(inputName, inputPrice)
         {

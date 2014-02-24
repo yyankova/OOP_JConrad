@@ -16,5 +16,10 @@
             : base(inputName, inputPrice)
         {
         }
+
+        public Shield(string inputName, decimal inputPrice, string imageSource)
+            : base(inputName, inputPrice, imageSource)
+        {
+        }
     }
 }
