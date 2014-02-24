@@ -36,11 +36,6 @@ namespace JConradOOPProject.Views
             };
 
             this.SavedGamesList.ItemsSource = players;
-
-            // Setting style of ListBoxItems
-            //Style tableLayout = this.FindResource("tableLayoutStatic") as Style;
-            //tableLayout.TargetType = typeof(ListBoxItem);
-            //this.SavedGamesList.Resources.Add(typeof(ListBoxItem), tableLayout);
         }
 
         public int PlayerUniqID
@@ -70,7 +65,7 @@ namespace JConradOOPProject.Views
             this.playerUniqID = uID;
 
             // Test purposes
-            MessageBox.Show(this.playerUniqID.ToString());
+            MessageBox.Show(this.playerUniqID.ToString(), "Prints player ID");
         }
 
         /// <summary>

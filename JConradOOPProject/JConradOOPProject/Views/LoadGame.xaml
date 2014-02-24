@@ -10,18 +10,27 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate>
-                        <StackPanel Name="PlayerStack" Background="RosyBrown" Orientation="Horizontal">
-                            <TextBlock Name="PlayerName" FontSize="17" Width="590" Text="{Binding Name}" />
-                            <TextBlock Name="PlayerLevel" FontSize="17" Width="100" Text="{Binding Level}" />
+                        <ControlTemplate.Resources>
+                            <Style BasedOn="{StaticResource default-font}" TargetType="{x:Type TextBlock}">
+                                <Setter Property="FontSize" Value="19" />
+                                <Setter Property="Padding" Value="10" />
+                                <Setter Property="Foreground" Value="#231809" />
+                            </Style>
+                        </ControlTemplate.Resources>
+                        <StackPanel Name="PlayerStack" Background="#845f2f" Margin="0,0,0,2" Orientation="Horizontal">
+                            <TextBlock Name="PlayerName" Width="600" Text="{Binding Path=Name}" />
+                            <TextBlock Name="PlayerLevel" Width="90" Text="{Binding Path=Level, StringFormat='{}{0} LVL'}" />
                         </StackPanel>
 
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="PlayerStack" Property="Background" Value="Gray" />
+                                <Setter TargetName="PlayerStack" Property="Background" Value="#c28c46" />
                                 <Setter TargetName="PlayerStack" Property="Cursor" Value="Hand" />
                             </Trigger>
                             <Trigger Property="IsFocused" Value="True">
-                                <Setter TargetName="PlayerStack" Property="Background" Value="Blue" />
+                                <Setter TargetName="PlayerStack" Property="Background" Value="#3d7820" />
+                                <Setter TargetName="PlayerName" Property="Foreground" Value="White" />
+                                <Setter TargetName="PlayerLevel" Property="Foreground" Value="White" />
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>
@@ -30,9 +39,12 @@
         </Style>
     </UserControl.Resources>
     <Grid>
-        <!--<TextBlock><Run Text="Load Game"/></TextBlock>-->
-        <StackPanel Orientation="Vertical" VerticalAlignment="Center">
-            <ListBox Name="SavedGamesList" Width="700" Height="400" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+        <StackPanel Orientation="Vertical" VerticalAlignment="Center" Margin="0,0,0,30">
+            <Canvas Width="700" Height="35">
+                <TextBlock Text="Load Game" Foreground="#412c11" FontSize="24" Style="{StaticResource default-font}" />
+            </Canvas>
+
+            <ListBox Name="SavedGamesList" Width="700" Height="400" Background="#412c11" BorderBrush="#211709" BorderThickness="2" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Opacity="0.9">
                 <!-- Dynamic Content -->
             </ListBox>
             <Canvas Width="700">
@@ -40,7 +52,7 @@
                     <StackPanel.Resources>
                         <Style BasedOn="{StaticResource small-menu-button}" TargetType="{x:Type Button}" />
                     </StackPanel.Resources>
-                    <Button Content="Play" Width="100" Height="30" Click="ButtonPlay_Click" />
+                    <Button Content="Play" Width="100" Height="30" IsDefault="True" Click="ButtonPlay_Click" />
                     <Button Content="Back" Width="100" Height="30" Click="ButtonBack_Click" />
                 </StackPanel>
             </Canvas>
