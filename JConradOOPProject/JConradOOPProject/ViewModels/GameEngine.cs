@@ -144,6 +144,7 @@ namespace JConradOOPProject.ViewModels
                 this.playerName = value;
             }
         }
+        
         public void StartGame()
         {
             InitializeEnemy();
@@ -160,8 +161,19 @@ namespace JConradOOPProject.ViewModels
 
         private void InitializeEnemy()
         {
-            //TODO: Generate random enemy depending on selected area, level
-            this.enemy = new ForestGhost("Ghost");
+            int i = randomGen.Next(0, 3);
+            switch (i)
+            {
+                case (0):
+                    this.enemy = new Bear("");
+                    break;
+                case (1):
+                    this.enemy = new ForestGhost("");
+                    break;
+                default:
+                    this.enemy = new EnemyLumberjack("");
+                    break;
+            }
         }
 
         private void InitializePlayer()
@@ -204,7 +216,6 @@ namespace JConradOOPProject.ViewModels
             {
                 this.PlayerCanAttack = true;
             }
-            this.PlayerCanAttack = true;
             OnPropertyChanged("PlayerHealth");
         }
 
