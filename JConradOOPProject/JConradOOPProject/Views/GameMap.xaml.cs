@@ -22,6 +22,7 @@ namespace JConradOOPProject.Views
     public partial class GameMap : UserControl
     {
         private GameEngine parent;
+
         public GameMap(GameEngine parent)
         {
             InitializeComponent();

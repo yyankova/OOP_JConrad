@@ -57,6 +57,12 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
+            if (this.Inventory.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an item.", "Select An Item");
+                return;
+            }
+
             byte selected = ((Item) this.Inventory.SelectedItem).IdItem;
 
             MessageBox.Show(selected.ToString());

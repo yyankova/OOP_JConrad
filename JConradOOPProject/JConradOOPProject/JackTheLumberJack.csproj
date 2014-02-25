@@ -168,7 +168,10 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\button.png" />
+    <Resource Include="Images\button_hover.png" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
     <Resource Include="Images\main_menu_bg.jpg" />
@@ -187,6 +190,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Items\item.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\button_click.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
