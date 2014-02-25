@@ -189,9 +189,6 @@
     <Resource Include="Images\game_map.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\newgame_intro.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\equipment_menu.jpg" />
   </ItemGroup>
   <ItemGroup>
@@ -214,6 +211,9 @@
     <Resource Include="Images\MapLocations\telerik_hover.png" />
     <Resource Include="Images\MapLocations\telerik_normal.png" />
     <Resource Include="Images\MapLocations\telerik_unavailable.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\main_intro.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

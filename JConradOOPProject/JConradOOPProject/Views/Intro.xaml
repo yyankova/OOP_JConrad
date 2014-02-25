@@ -9,7 +9,7 @@
         <Image Name="IntroBackground" Stretch="Fill" />
         <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom">
             <StackPanel Orientation="Vertical">
-                <TextBlock Name="IntroDescription" TextWrapping="Wrap" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,10" FontFamily="Segoe UI Light" FontSize="17" Foreground="White" Text="">
+                <TextBlock Name="IntroDescription" TextWrapping="Wrap" TextAlignment="Center" VerticalAlignment="Bottom" HorizontalAlignment="Right" Margin="0,0,0,10" FontFamily="Segoe UI Light" FontSize="17" Foreground="White" Text="">
                     <TextBlock.Effect>
                         <DropShadowEffect ShadowDepth="2" Direction="270" Color="Black" Opacity="0.9" BlurRadius="2" />
                     </TextBlock.Effect>
