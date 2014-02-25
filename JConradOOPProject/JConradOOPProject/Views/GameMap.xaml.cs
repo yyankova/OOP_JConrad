@@ -30,6 +30,19 @@ namespace JConradOOPProject.Views
         }
 
         /// <summary>
+        /// LOCATION
+        /// Executes on every location click.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Location_Click(object sender, RoutedEventArgs e)
+        {
+            Button location = (Button)sender;
+
+            MessageBox.Show(location.Name, "Returns clicked Button.Name");
+        }
+
+        /// <summary>
         /// Button EXIT
         /// Closes the current game session, saves the content and returns the user to the main menu.
         /// </summary>

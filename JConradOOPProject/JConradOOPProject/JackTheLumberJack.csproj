@@ -200,6 +200,21 @@
   <ItemGroup>
     <Resource Include="Images\button_click.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\MapLocations\canidae_hover.png" />
+    <Resource Include="Images\MapLocations\canidae_normal.png" />
+    <Resource Include="Images\MapLocations\canidae_unavailable.png" />
+    <Resource Include="Images\MapLocations\grizzly_hover.png" />
+    <Resource Include="Images\MapLocations\grizzly_normal.png" />
+    <Resource Include="Images\MapLocations\rhodope_hover.png" />
+    <Resource Include="Images\MapLocations\rhodope_normal.png" />
+    <Resource Include="Images\MapLocations\rhodope_unavailable.png" />
+    <Resource Include="Images\MapLocations\sisharpovo_hover.png" />
+    <Resource Include="Images\MapLocations\sisharpovo_normal.png" />
+    <Resource Include="Images\MapLocations\telerik_hover.png" />
+    <Resource Include="Images\MapLocations\telerik_normal.png" />
+    <Resource Include="Images\MapLocations\telerik_unavailable.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
