@@ -1,15 +1,17 @@
 ﻿using JConradOOPProject.GameObjects.Tools.Shields;
 using JConradOOPProject.GameObjects.Tools.Skills;
 using JConradOOPProject.GameObjects.Tools.Weapons;
+using JConradOOPProject.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JConradOOPProject.ViewModels;
 
 namespace JConradOOPProject.GameObjects.Creatures
 {
-    public partial class Lumberjack : Creature
+    public partial class Lumberjack : Creature, IAttack
     {
         public int CurrentLevel { get; set; }
         public int CurrentExperience { get; set; }
@@ -24,7 +26,8 @@ namespace JConradOOPProject.GameObjects.Creatures
 
         public List<Shield> Shields { get; set; }
 
-        public Lumberjack(string name, Position position) : this(name, position, 0, 0, 0, 0, 0)
+        public Lumberjack(string name, int level, int experience, int goldAmount)
+            : this(name, new Position(), 0, 0, level, experience, goldAmount)
         { }
         public Lumberjack(string name, Position position, int width, int heigth, int level, int experience, int goldAmount)
             : base(name, position, width, heigth)
@@ -39,10 +42,23 @@ namespace JConradOOPProject.GameObjects.Creatures
             this.Shields = new List<Shield>();
         }
 
-        public override int HitPower()
+        public override decimal GetHitPower()
         {
-            //TODO: include skill in calculation
-            return base.HitPower();
+            return base.GetHitPower() * this.CurrentSkills[this.SkillIndex].DamageCoeff;
+        }
+
+        public override decimal GetDefencePower()
+        {
+            return base.GetDefencePower() * this.CurrentSkills[this.SkillIndex].DefenceCoeff;
+        }
+
+        public void Hit(Creature attacked)
+        {
+            attacked.Health -= this.GetHitPower() - attacked.GetDefencePower();
+            Enemy enemy = attacked as Enemy;
+            this.GoldAmount += enemy.WorthInGold;
+            this.CurrentExperience += GameParameters.GetExperienceReward(this.CurrentLevel);
+            this.CurrentLevel = GameParameters.GetCurrentLevel(this.CurrentExperience);
         }
     }
 }

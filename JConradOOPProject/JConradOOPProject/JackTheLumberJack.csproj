@@ -80,9 +80,10 @@
     <Compile Include="GameObjects\Tools\Weapons\DoubleAxe.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Knife.cs" />
     <Compile Include="GameObjects\Tools\Weapons\Weapon.cs" />
+    <Compile Include="Interfaces\IAttack.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
-    <Compile Include="ViewModels\GameParameters.cs" />
+    <Compile Include="GameParameters\GameParameters.cs" />
     <Compile Include="ViewModels\InputOutputSystem.cs" />
     <Compile Include="Views\Equipment.xaml.cs">
       <DependentUpon>Equipment.xaml</DependentUpon>

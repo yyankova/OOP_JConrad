@@ -1,6 +1,7 @@
 ﻿using JConradOOPProject.Commands;
 using JConradOOPProject.GameObjects;
 using JConradOOPProject.GameObjects.Creatures;
+using JConradOOPProject.GameObjects.Tools.Shields;
 using JConradOOPProject.GameObjects.Tools.Weapons;
 using System;
 using System.Collections.Generic;
@@ -15,10 +16,7 @@ namespace JConradOOPProject.ViewModels
     public class GameEngine : BaseViewModel
     {
         private static readonly Random randomGen = new Random();
-        private const int InitialLevel = 1;
-        private const int InitialGold = 100;
-        private const int InitialExperience = 0;
-
+        private string playerName;
         private Lumberjack player;
         private Enemy enemy;
         private bool playerCanAttack;
@@ -82,82 +80,140 @@ namespace JConradOOPProject.ViewModels
                 OnPropertyChanged("PlayerCanAttack");
             }
         }
-       
+        public int AttackWithSkill //0, 1, 2
+        {
+            get
+            {
+                return this.player.SkillIndex;
+            }
+            set
+            {
+                this.player.SkillIndex = value;
+            }
+        }
+        public Weapon CurrentWeapon
+        {
+            get
+            {
+                return this.player.CurrentWeapon;
+            }
+        }
+        public Shield CurrentShield
+        {
+            get
+            {
+                return this.player.CurrentShield;
+            }
+        }
+        public decimal PlayerGold
+        {
+            get
+            {
+                return this.player.GoldAmount;
+            }
+        }
+        public decimal PlayerHealth
+        {
+            get
+            {
+                return this.player.Health;
+            }
+        }
+        public decimal EnemyHealth
+        {
+            get
+            {
+                return this.enemy.Health;
+            }
+        }
+        public int PlayerExperience
+        {
+            get
+            {
+                return this.player.CurrentExperience;
+            }
+        }
+        public string PlayerName
+        {
+            get
+            {
+                return this.player.Name;
+            }
+            set
+            {
+                this.playerName = value;
+            }
+        }
         public void StartGame()
         {
             InitializeEnemy();
             InitializePlayer();
-            //...
-
+            
             while (this.player.IsAlive && this.enemy.IsAlive)
             {
                 if (!this.PlayerCanAttack)
                 {
                     EnemyAttack();
-                    if (this.enemy.IsAlive && this.player.IsAlive)
-                    {
-                        this.PlayerCanAttack = true;
-                    }
-                    //TODO: Calculate damage on player
-                }
-                else
-                {
-                    //TODO: Wait for user input?    
                 }
             }
-            if (this.player.IsAlive)
-            {
-                this.player.GoldAmount += 0; //TODO
-                this.player.CurrentExperience += 0; //TODO
-                this.player.CurrentLevel = GameParameters.GetCurrentLevel(this.player.CurrentExperience);
-                this.PlayerIsOnMainMap = true;
-            }
-            else // this.enemy.IsAlive
-            {
-                //TODO: calculate damage;
-            }
-
-            //...
         }
 
         private void InitializeEnemy()
         {
             //TODO: Generate random enemy depending on selected area, level
-            this.enemy = new ForestGhost("Ghost", new Position(), 0, 0);
+            this.enemy = new ForestGhost("Ghost");
         }
+
         private void InitializePlayer()
         {
-            //TODO: Pass name, position
-            this.player = new Lumberjack("Jack", new Position(), InitialLevel, InitialExperience, InitialGold, 0, 0);
+            this.player = new Lumberjack(this.playerName, GameParameters.InitialLevel, GameParameters.InitialExperience, GameParameters.InitialGold);
             this.PlayerCanAttack = (this.player.Speed > this.enemy.Speed);
         }
+
         void HandlePlayerAttack(object player)
         {
-            //TODO: set selected skill in this.player.SkillIndex before calling the method
+            int currentAttackHitCoeff = randomGen.Next(1, 101);
+            decimal skillHitCoeff = this.player.CurrentSkills[this.player.SkillIndex].HitRateCoeff;
+            if (currentAttackHitCoeff * skillHitCoeff > GameParameters.PlayerHitChance)
+            {
+                this.player.Hit(this.enemy);
+                if (this.enemy.IsAlive)
+                {
+                    this.PlayerCanAttack = false;
+                }
+            }
+            OnPropertyChanged("EnemyHealth");
+            OnPropertyChanged("PlayerGold");
+            OnPropertyChanged("PlayerExperience");
         }
+
         bool CanPlayerAttack(object player)
         {
             return this.PlayerCanAttack;
         }
+
         void EnemyAttack()
         {
-            //TODO
+            int currentAttackHitCoeff = randomGen.Next(1, 101);
+            if (currentAttackHitCoeff > GameParameters.EnemyHitChance)
+            {
+                this.enemy.Hit(this.player);
+            }
+
+            if (this.player.IsAlive)
+            {
+                this.PlayerCanAttack = true;
+            }
+            this.PlayerCanAttack = true;
+            OnPropertyChanged("PlayerHealth");
         }
+
         void HandleRun(object player)
         { }
+        
         bool CanRun(object player)
         {
             return true;
-        }
-
-        void UpdateHealth(Creature attacker, Creature attacked)
-        {
-            int damage = attacker.HitPower() - attacked.DefencePower;
-            attacked.Health -= damage;
-        }
-        bool CreatureIsHit(Creature creature, Weapon weapon)
-        {
-            return GameObject.Overlap(creature, weapon);
         }
     }
 }

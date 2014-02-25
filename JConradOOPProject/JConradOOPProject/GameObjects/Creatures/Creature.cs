@@ -12,21 +12,21 @@ namespace JConradOOPProject.GameObjects.Creatures
 {
     public abstract class Creature : GameObject, IMovable
     {
-        public virtual int InitialHealth
+        public virtual decimal InitialHealth
         { 
             get
             {
                 return 100;
             }
         }
-        public virtual int InitialAttackPower
+        public virtual decimal InitialAttackPower
         {
             get
             {
                 return 100;
             }
         }
-        public virtual int InitialDefencePower
+        public virtual decimal InitialDefencePower
         {
             get
             {
@@ -49,9 +49,9 @@ namespace JConradOOPProject.GameObjects.Creatures
         }
 
         public string Name { get; set; }
-        public int Health { get; set; }
-        public int AttackPower { get; set; }
-        public int DefencePower { get; set; }
+        public decimal Health { get; set; }
+        public decimal AttackPower { get; set; }
+        public decimal DefencePower { get; set; }
         public int Precision { get; set; }
         public int Speed { get; set; }
         public Weapon CurrentWeapon { get; set; }
@@ -66,12 +66,9 @@ namespace JConradOOPProject.GameObjects.Creatures
        
         public Creature() : this(String.Empty, new Position(), 0, 0)
         { }
-        public Creature(string name, Position position, int width, int heigth)
+        public Creature(string name, Position position, int width, int heigth) : base(position, width, heigth)
         {
             this.Name = name;
-            this.Position = position;
-            this.Width = width;
-            this.Heigth = heigth;
             this.Health = InitialHealth;
             this.AttackPower = InitialAttackPower;
             this.DefencePower = InitialDefencePower;
@@ -85,9 +82,14 @@ namespace JConradOOPProject.GameObjects.Creatures
             this.Position.Y += deltaY;
         }
 
-        public virtual int HitPower()
+        public virtual decimal GetHitPower()
         {
             return this.AttackPower + this.CurrentWeapon.Power;
+        }
+
+        public virtual decimal GetDefencePower()
+        {
+            return this.DefencePower + this.CurrentShield.DefencePower;
         }
     }
 }

@@ -54,6 +54,11 @@
         public override string ToString()
         {
             return base.ToString();
-        } 
+        }
+
+        public override decimal DefencePower
+        {
+            get { return (decimal)DefencePoints; }
+        }
     }
 }

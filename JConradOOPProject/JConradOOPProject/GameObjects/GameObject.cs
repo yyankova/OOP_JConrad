@@ -10,6 +10,17 @@ namespace JConradOOPProject.GameObjects
     public abstract class GameObject : BaseViewModel
     {
         protected Position position;
+
+        public GameObject()
+            : this(new Position(0, 0), 0, 0)
+        { }
+        public GameObject(Position position, int width, int height)
+        {
+            this.position = position;
+            this.Heigth = height;
+            this.Width = width;
+        }
+        
         public Position Position
         {
             get
@@ -23,7 +34,7 @@ namespace JConradOOPProject.GameObjects
         }
         public int Heigth { get; set; }
         public int Width { get; set; }
-
+        
         public static bool Overlap(GameObject obj1, GameObject obj2)
         {
             bool overlap = false;

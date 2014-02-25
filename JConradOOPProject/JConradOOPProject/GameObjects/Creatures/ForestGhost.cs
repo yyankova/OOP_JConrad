@@ -8,8 +8,12 @@ namespace JConradOOPProject.GameObjects.Creatures
 {
     public class ForestGhost: Enemy
     {
-        public ForestGhost(string name, Position position, int width, int heigth)
-            : base(name, position, width, heigth)
+        public ForestGhost(string name)
+            : base(name)
         { }
+        public override int WorthInGold
+        {
+            get { return 50; }
+        }
     }
 }

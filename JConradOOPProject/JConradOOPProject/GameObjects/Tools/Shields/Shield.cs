@@ -14,5 +14,10 @@
             : base(id, inputName, inputPrice, imageSource)
         {
         }
+
+        public abstract decimal DefencePower
+        {
+            get;
+        }
     }
 }
