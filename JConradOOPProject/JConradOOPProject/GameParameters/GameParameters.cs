@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.ViewModels
 {
-    public static class GameParameters
+    public struct GameParameters
     {
         //Minimum experience required for level 1, 2, 3
         private static int[] levelMinExperience = new int[] { 0, 101, 301 };
