@@ -1,20 +1,11 @@
-<<<<<<< HEAD
-﻿namespace JConradOOPProject.Views
-{
-using System;
-=======
 ﻿using System;
->>>>>>> Slight modifications on equipment menu
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using JConradOOPProject.ViewModels;
-<<<<<<< HEAD
-=======
 
 namespace JConradOOPProject.Views
 {
->>>>>>> Slight modifications on equipment menu
     using GameObjects.Tools;
     using GameObjects.Tools.Skills;
     using GameObjects.Tools.Weapons;
@@ -269,10 +260,6 @@ namespace JConradOOPProject.Views
             parent.Player.GoldAmount -= (int)item.Price;
             parent.Shop.Remove(item);
         }
-<<<<<<< HEAD
-    }
-}
-=======
 
         /// <summary>
         /// Checks whether a listbox has a selected item. If not, informs the user with a message.
@@ -288,4 +275,3 @@ namespace JConradOOPProject.Views
         }
     }
 }
->>>>>>> Slight modifications on equipment menu
