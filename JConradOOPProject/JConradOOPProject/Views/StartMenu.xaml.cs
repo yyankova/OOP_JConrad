@@ -47,12 +47,12 @@ namespace JConradOOPProject.Views
         }
 
         /// <summary>
-        /// Button QUIT
+        /// Button EXIT
         /// Shuts down the application.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonQuit_Click(object sender, RoutedEventArgs e)
+        private void ButtonExit_Click(object sender, RoutedEventArgs e)
         {
             Application.Current.Shutdown();
         }

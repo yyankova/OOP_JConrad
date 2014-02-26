@@ -23,8 +23,7 @@
 
         public GameEngine()
         {
-            InitializeEnemy();
-            InitializePlayer();
+            // Moved to Initialize();
         }
 
         //Properties to be bound
@@ -126,6 +125,13 @@
                 return this.enemy.Health;
             }
         }
+        public int PlayerLevel
+        {
+            get
+            {
+                return this.player.CurrentLevel;
+            }
+        }
         public int PlayerExperience
         {
             get
@@ -156,6 +162,15 @@
         public ObservableCollection<Item> Shop { get; set; }
         public ObservableCollection<Item> Inventory { get; set; }
         public ObservableCollection<Skill> Skills { get; set; }
+
+        /// <summary>
+        /// Performs game initialization
+        /// </summary>
+        public void Initialize()
+        {
+            this.InitializeEnemy();
+            this.InitializePlayer();
+        }
 
         public void StartGame()
         {

@@ -55,7 +55,7 @@
             </StackPanel.Resources>
             <Button Content="New Game" Click="ButtonNewGame_Click" />
             <Button Content="Load Game" Click="ButtonLoadGame_Click" />
-            <Button Content="Quit" Click="ButtonQuit_Click" />
+            <Button Content="Exit" Click="ButtonExit_Click" />
         </StackPanel>
     </Canvas>
 </UserControl>

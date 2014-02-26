@@ -21,12 +21,15 @@ namespace JConradOOPProject.Views
     /// </summary>
     public partial class GameMap : UserControl
     {
-        private GameEngine parent;
+        private GameEngine parentGameEngine;
 
         public GameMap(GameEngine parent)
         {
             InitializeComponent();
-            this.parent = parent;
+            this.parentGameEngine = parent;
+
+            // Fills the 
+            this.PlayerInfo.DataContext = this.parentGameEngine;
         }
 
         /// <summary>
@@ -43,12 +46,12 @@ namespace JConradOOPProject.Views
         }
 
         /// <summary>
-        /// Button EXIT
+        /// Button QUIT
         /// Closes the current game session, saves the content and returns the user to the main menu.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ButtonExit_Click(object sender, RoutedEventArgs e)
+        private void ButtonQuit_Click(object sender, RoutedEventArgs e)
         {
             MainMenu.SwitchWindowContent(new StartMenu());
         }
@@ -61,7 +64,24 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonEquipment_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu.SwitchWindowContent(new Equipment(this.parent), true);
+            MainMenu.SwitchWindowContent(new Equipment(this.parentGameEngine), true);
+        }
+    }
+
+    // To be removed
+    public class TestPlayer
+    {
+        public string PlayerName { get; set; }
+        public int PlayerLevel { get; set; }
+        public int PlayerExperience { get; set; }
+        public int PlayerGold { get; set; }
+
+        public TestPlayer(string name, int level, int experience, int gold)
+        {
+            this.PlayerName = name;
+            this.PlayerLevel = level;
+            this.PlayerExperience = experience;
+            this.PlayerGold = gold;
         }
     }
 }

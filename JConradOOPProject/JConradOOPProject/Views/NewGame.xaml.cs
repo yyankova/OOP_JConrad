@@ -60,7 +60,7 @@ namespace JConradOOPProject.Views
             this.NewGameName.Text = DEFAULT_TXTFIELD_TEXT;
             this.playerName = String.Empty;
 
-            gameEngine = new GameEngine();
+            this.gameEngine = new GameEngine();
         }
 
         /// <summary>
@@ -85,6 +85,10 @@ namespace JConradOOPProject.Views
             try
             {
                 this.PlayerName = this.NewGameName.Text;
+                this.gameEngine.PlayerName = this.PlayerName;
+
+                // Initializes the game
+                this.gameEngine.Initialize();
 
                 // New Game intro >>
 

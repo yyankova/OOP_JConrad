@@ -126,12 +126,12 @@
                     <Setter Property="Foreground" Value="#9c3200" />
                 </Style>
             </Grid.Resources>
-            <Grid Width="150" Margin="0,20,13,0" HorizontalAlignment="Right" VerticalAlignment="Top">
+            <Grid x:Name="PlayerInfo" Width="150" Margin="0,20,13,0" HorizontalAlignment="Right" VerticalAlignment="Top">
                 <StackPanel Orientation="Vertical">
-                    <TextBlock FontSize="22" Text="PeshoTurboto" />
-                    <TextBlock FontSize="17" Text="5 LVL" />
-                    <TextBlock FontSize="11" Text="1233 exp" />
-                    <TextBlock FontSize="15" Margin="0,5,0,0" Foreground="Yellow" Text="12 235">
+                    <TextBlock FontSize="22" Text="{Binding Path=PlayerName}" />
+                    <TextBlock FontSize="17" Text="{Binding Path=PlayerLevel, StringFormat='{}{0} LVL'}" />
+                    <TextBlock FontSize="11" Text="{Binding Path=PlayerExperience, StringFormat='{}{0} exp'}" />
+                    <TextBlock FontSize="15" Margin="0,5,0,0" Foreground="Yellow" Text="{Binding Path=PlayerGold, StringFormat='{}{0} Gold'}">
                         <TextBlock.Effect>
                             <DropShadowEffect ShadowDepth="1" Direction="270" Color="Black" Opacity="0.8" BlurRadius="3" />
                         </TextBlock.Effect>
@@ -151,7 +151,7 @@
                 <StackPanel.Resources>
                     <Style BasedOn="{StaticResource small-menu-button}" TargetType="{x:Type Button}" />
                 </StackPanel.Resources>
-                <Button Content="Exit" Click="ButtonExit_Click" />
+                <Button Content="Quit" Click="ButtonQuit_Click" />
                 <Button Content="Equipment" Click="ButtonEquipment_Click" />
             </StackPanel>
         </Grid>
