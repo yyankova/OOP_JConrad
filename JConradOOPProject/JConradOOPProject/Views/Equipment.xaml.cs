@@ -108,15 +108,15 @@ using JConradOOPProject.ViewModels;
             {
                 parent.Inventory = new ObservableCollection<Item>();
                 parent.Inventory.Add(new Axe(id++, "Axe", inputPrice: 65, imageSource: "item"));
-                parent.Inventory.Last().Description = "TODO: add some description of Axe. to change image";
+                parent.Inventory.Last().Description = "A very sharp and powerful axe.  Use it carefully.";
                 parent.Inventory.Add(new Chopper(id++, "Chopper", inputPrice: 100, imageSource: "item"));
-                parent.Inventory.Last().Description = "TODO: add description of Chopper, to change image";
+                parent.Inventory.Last().Description = "Short deadly cold weapon for severe enemies.";
                 parent.Inventory.Add(new Cutter(id++, "Cutter", inputPrice: 200, imageSource: "item"));
-                parent.Inventory.Last().Description = "TODO: add description of Cutter, to change image";
+                parent.Inventory.Last().Description = "Use it kill enemies.";
                 parent.Inventory.Add(new ChainArmour(id++, "Chain Armour", inputPrice: 125, imageSource: "item"));
-                parent.Inventory.Last().Description = "TODO: add description of Chain Armor, change image";
+                parent.Inventory.Last().Description = "Protects you against hits of your enemies.";
                 parent.Inventory.Add(new SweatCloth(id++, "Sweat Cloth", inputPrice: 85, imageSource: "item"));
-                parent.Inventory.Last().Description = "TODO: add description";
+                parent.Inventory.Last().Description = "Protects you against hits and odour.";
             }
 
             Inventory.ItemsSource = parent.Inventory;
@@ -140,7 +140,7 @@ using JConradOOPProject.ViewModels;
                 parent.Skills.Add(new Skill(id++, "Some skill 1", 85, 1m, 1m, 1m, "item"));
                 parent.Skills.Last().Description = "TODO: add description, change image";
                 parent.Skills.Add(new Skill(id++, "Some skill 2", 150, 2m, 2m, 2m, "item"));
-                parent.Skills.Last().Description = "TODO: add description, change image";
+                parent.Skills.Last().Description = "This skill increases your defense and attack power.";
             }
 
             Skills.ItemsSource = parent.Skills;
