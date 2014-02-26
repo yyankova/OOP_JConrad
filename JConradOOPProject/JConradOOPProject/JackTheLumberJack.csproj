@@ -64,7 +64,6 @@
     <Compile Include="GameObjects\Creatures\EnemyLumberjack.cs" />
     <Compile Include="GameObjects\Creatures\ForestGhost.cs" />
     <Compile Include="GameObjects\Creatures\Lumberjack.cs" />
-    <Compile Include="GameObjects\Creatures\LumberjackInventory.cs" />
     <Compile Include="GameObjects\Tools\Item.cs" />
     <Compile Include="GameObjects\Tools\Shields\ChainArmour.cs" />
     <Compile Include="GameObjects\Tools\Shields\Shield.cs" />

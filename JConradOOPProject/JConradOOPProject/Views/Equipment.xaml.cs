@@ -29,9 +29,9 @@ namespace JConradOOPProject.Views
     public partial class Equipment : UserControl
     {
         private GameEngine parent;
-        private ObservableCollection<Item> inventory; //weapons and shields
-        private ObservableCollection<Skill> skills;
-        private ObservableCollection<Item> shop;
+        //private ObservableCollection<Item> inventory; //weapons and shields
+        //private ObservableCollection<Skill> skills;
+        //private ObservableCollection<Item> shop;
 
         public Equipment(GameEngine parent)
         {
@@ -116,24 +116,22 @@ namespace JConradOOPProject.Views
         /// <param name="items"></param>
         private void FillInventoryTab(ref byte id)
         {
-            this.inventory = new ObservableCollection<Item>();
-            this.inventory.Add(new Axe(id++, "Axe", inputPrice: 65, imageSource: "item"));
-            this.inventory.Last().Description = "TODO: add some description of Axe. to change image";
+            if (parent.Inventory == null)
+            {
+                parent.Inventory = new ObservableCollection<Item>();
+                parent.Inventory.Add(new Axe(id++, "Axe", inputPrice: 65, imageSource: "item"));
+                parent.Inventory.Last().Description = "TODO: add some description of Axe. to change image";
+                parent.Inventory.Add(new Chopper(id++, "Chopper", inputPrice: 100, imageSource: "item"));
+                parent.Inventory.Last().Description = "TODO: add description of Chopper, to change image";
+                parent.Inventory.Add(new Cutter(id++, "Cutter", inputPrice: 200, imageSource: "item"));
+                parent.Inventory.Last().Description = "TODO: add description of Cutter, to change image";
+                parent.Inventory.Add(new ChainArmour(id++, "Chain Armour", inputPrice: 125, imageSource: "item"));
+                parent.Inventory.Last().Description = "TODO: add description of Chain Armor, change image";
+                parent.Inventory.Add(new SweatCloth(id++, "Sweat Cloth", inputPrice: 85, imageSource: "item"));
+                parent.Inventory.Last().Description = "TODO: add description";
+            }
 
-            this.inventory.Add(new Chopper(id++, "Chopper", inputPrice: 100, imageSource: "item"));
-            this.inventory.Last().Description = "TODO: add description of Chopper, to change image";
-
-            this.inventory.Add(new Cutter(id++, "Cutter", inputPrice: 200, imageSource: "item"));
-            this.inventory.Last().Description = "TODO: add description of Cutter, to change image";
-
-            //stock shields
-            this.inventory.Add(new ChainArmour(id++, "Chain Armour", inputPrice: 125, imageSource: "item"));
-            this.inventory.Last().Description = "TODO: add description of Chain Armor, change image";
-
-            this.inventory.Add(new SweatCloth(id++, "Sweat Cloth", inputPrice: 85, imageSource: "item"));
-            this.inventory.Last().Description = "TODO: add description";
-
-            Inventory.ItemsSource = this.inventory;
+            Inventory.ItemsSource = parent.Inventory;
 
             //TODO: add handling of property SpecialValue, where?
             //if (item is Weapon)
@@ -148,14 +146,16 @@ namespace JConradOOPProject.Views
         /// <param name="items"></param>
         private void FillSkillsTab(ref byte id)
         {
-            this.skills = new ObservableCollection<Skill>();
-            skills.Add(new Skill(id++, "Some skill 1", 85, 1m, 1m, 1m, "item"));
-            skills.Last().Description = "TODO: add description, change image";
+            if (parent.Skills == null)
+            {
+                parent.Skills = new ObservableCollection<Skill>();
+                parent.Skills.Add(new Skill(id++, "Some skill 1", 85, 1m, 1m, 1m, "item"));
+                parent.Skills.Last().Description = "TODO: add description, change image";
+                parent.Skills.Add(new Skill(id++, "Some skill 2", 150, 2m, 2m, 2m, "item"));
+                parent.Skills.Last().Description = "TODO: add description, change image";
+            }
 
-            skills.Add(new Skill(id++, "Some skill 2", 150, 2m, 2m, 2m, "item"));
-            skills.Last().Description = "TODO: add description, change image";
-
-            Skills.ItemsSource = skills;
+            Skills.ItemsSource = parent.Skills;
 
             //TODO: add handling of specialValue, where?
             //string specialValue = String.Concat("Damage Coef: ", skill.DamageCoeff, skill.DefenceCoeff, " Defence Coef; ");
@@ -167,20 +167,21 @@ namespace JConradOOPProject.Views
         /// <param name="items"></param>
         private void FillShopTab(ref byte id)
         {
-            this.shop = new ObservableCollection<Item>();
-            shop.Add(new DoubleAxe(id++, "Double Axe", 100, imageSource: "item"));
-            shop.Last().Description = "TODO: add description";
+            if (parent.Shop == null)
+            {
+                parent.Shop = new ObservableCollection<Item>();
 
-            shop.Add(new Knife(id++, "Knife", 100, imageSource: "item"));
-            shop.Last().Description = "TODO: add description";
+                parent.Shop.Add(new DoubleAxe(id++, "Double Axe", 100, imageSource: "item"));
+                parent.Shop.Last().Description = "TODO: add description";
+                parent.Shop.Add(new Knife(id++, "Knife", 100, imageSource: "item"));
+                parent.Shop.Last().Description = "TODO: add description";
+                parent.Shop.Add(new Skill(id++, "Some skill 3", 85, 1m, 1m, 1m, "item"));
+                parent.Shop.Last().Description = "TODO: add description, change image";
+                parent.Shop.Add(new Skill(id++, "Some skill 4", 150, 2m, 2m, 2m, "item"));
+                parent.Shop.Last().Description = "TODO: add description, change image";
+            }
 
-            shop.Add(new Skill(id++, "Some skill 3", 85, 1m, 1m, 1m, "item"));
-            shop.Last().Description = "TODO: add description, change image";
-
-            shop.Add(new Skill(id++, "Some skill 4", 150, 2m, 2m, 2m, "item"));
-            shop.Last().Description = "TODO: add description, change image";
-
-            Shop.ItemsSource = shop;
+            Shop.ItemsSource = parent.Shop;
 
             //TODO: add handling of SpecialValue
             //string specialValue = String.Concat("Damage Coef: ", skill.DamageCoeff, skill.DefenceCoeff, " Defence Coef; ");
@@ -201,22 +202,22 @@ namespace JConradOOPProject.Views
                 //take the weapon that the hero currently has and place it in the inventory
                 if (parent.Player.CurrentWeapon != null)
                 {
-                    this.inventory.Add(parent.Player.CurrentWeapon);
+                    parent.Inventory.Add(parent.Player.CurrentWeapon);
                 }
 
                 parent.Player.CurrentWeapon = (Weapon)item;
-                inventory.Remove(item);
+                parent.Inventory.Remove(item);
             }
             else if (item is Shield)
             {
                 //take the shield that the hero currently has and place it in the inventory
                 if (parent.Player.CurrentShield != null)
                 {
-                    this.inventory.Add(parent.Player.CurrentShield);
+                    parent.Inventory.Add(parent.Player.CurrentShield);
                 }
 
                 parent.Player.CurrentShield = (Shield)item;
-                this.inventory.Remove(item);
+                parent.Inventory.Remove(item);
             }
             else if (item is Skill)
             {
@@ -225,10 +226,10 @@ namespace JConradOOPProject.Views
 
                 if (parent.Player.CurrentSkills[slot] != null)
                 {
-                    this.skills.Add(parent.Player.CurrentSkills[slot]);
+                    parent.Skills.Add(parent.Player.CurrentSkills[slot]);
                 }
                 parent.Player.CurrentSkills[slot] = (Skill)item;
-                this.skills.Remove((Skill)item);
+                parent.Skills.Remove((Skill)item);
             }
         }
 
@@ -244,15 +245,15 @@ namespace JConradOOPProject.Views
             }
             if (item is Weapon || (item is Shield))
             {
-                this.inventory.Add(item);
+                parent.Inventory.Add(item);
             }
             else if (item is Skill)
             {
-                this.skills.Add((Skill)item);
+                parent.Skills.Add((Skill)item);
             }
 
             parent.Player.GoldAmount -= (int)item.Price;
-            this.shop.Remove(item);
+            parent.Shop.Remove(item);
         }
     }
 

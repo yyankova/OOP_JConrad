@@ -1,11 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JConradOOPProject.GameObjects.Tools.Skills
+﻿namespace JConradOOPProject.GameObjects.Tools.Skills
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class Skill : Item
     {
         //fields

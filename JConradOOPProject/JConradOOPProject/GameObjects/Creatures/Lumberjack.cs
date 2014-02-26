@@ -21,11 +21,6 @@ namespace JConradOOPProject.GameObjects.Creatures
         // we must add skills only from one place to make sure the slots are exactly 3
         public int SkillIndex { get; set; } //0, 1, 2: with which skill the attack is performed
 
-        //to remove Weaons, Shields and Skills because they are now in class Equipment
-        public List<Weapon> Weapons { get; set; }
-        public List<Shield> Shields { get; set; }
-        public List<Skill> Skills { get; set; }
-
         public Lumberjack(string name, int level, int experience, int goldAmount)
             : this(name, new Position(), 0, 0, level, experience, goldAmount)
         { }
@@ -37,9 +32,6 @@ namespace JConradOOPProject.GameObjects.Creatures
             this.GoldAmount = goldAmount;
             InitializeSkillSlots();
             this.SkillIndex = 0;
-            this.Skills = new List<Skill>();
-            this.Weapons = new List<Weapon>();
-            this.Shields = new List<Shield>();
         }
 
         public override decimal GetHitPower()

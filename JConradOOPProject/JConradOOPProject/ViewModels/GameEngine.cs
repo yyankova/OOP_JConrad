@@ -1,18 +1,15 @@
-﻿using JConradOOPProject.Commands;
-using JConradOOPProject.GameObjects;
-using JConradOOPProject.GameObjects.Creatures;
-using JConradOOPProject.GameObjects.Tools.Shields;
-using JConradOOPProject.GameObjects.Tools.Weapons;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows.Input;
-
-namespace JConradOOPProject.ViewModels
+﻿namespace JConradOOPProject.ViewModels
 {
+    using JConradOOPProject.Commands;
+    using JConradOOPProject.GameObjects.Creatures;
+    using JConradOOPProject.GameObjects.Tools;
+    using JConradOOPProject.GameObjects.Tools.Shields;
+    using JConradOOPProject.GameObjects.Tools.Skills;
+    using JConradOOPProject.GameObjects.Tools.Weapons;
+    using System;
+    using System.Collections.ObjectModel;
+    using System.Windows.Input;
+
     public class GameEngine : BaseViewModel
     {
         private static readonly Random randomGen = new Random();
@@ -147,7 +144,7 @@ namespace JConradOOPProject.ViewModels
                 this.playerName = value;
             }
         }
-        
+
         public Lumberjack Player
         {
             get
@@ -155,6 +152,11 @@ namespace JConradOOPProject.ViewModels
                 return this.player;
             }
         }
+
+        public ObservableCollection<Item> Shop { get; set; }
+        public ObservableCollection<Item> Inventory { get; set; }
+        public ObservableCollection<Skill> Skills { get; set; }
+
         public void StartGame()
         {
             while (this.player.IsAlive && this.enemy.IsAlive)
@@ -228,7 +230,7 @@ namespace JConradOOPProject.ViewModels
 
         void HandleRun(object player)
         { }
-        
+
         bool CanRun(object player)
         {
             return true;
