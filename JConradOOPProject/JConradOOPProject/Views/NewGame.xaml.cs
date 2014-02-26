@@ -93,7 +93,7 @@ namespace JConradOOPProject.Views
                     MainMenu.SwitchWindowContent(new GameMap(this.gameEngine), true);
                 };
 
-                MainMenu.SwitchWindowContent(new Intro("main_intro.jpg", "Chepelar Man is an outstanding logger who proved himself numerous times at Grizzly and Canidae forests with his agility and strength. Now he have to face the new threat that is about to endanger the livelihoods and lives of many. Will he make it out to the end? ...", continueAction), true);
+                MainMenu.SwitchWindowContent(new Intro("main_intro.jpg", "Chepelar Man is an outstanding logger who proved himself numerous times at Grizzly and Canidae forests with his agility and strength. Now he has to face the new threat that is about to endanger the livelihoods and lives of many. Will he make it out to the end? ...", continueAction), true);
             }
             catch (ArgumentException ex)
             {
