@@ -2,6 +2,7 @@
 {
     using System;
 
+    [Serializable]
     class Chopper : Weapon
     {
         //constants 

@@ -6,6 +6,7 @@
     using System.Text;
     using System.Threading.Tasks;
 
+    [Serializable]
     public class Axe : Weapon
     {
         //constants 

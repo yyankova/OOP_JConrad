@@ -1,5 +1,8 @@
 ﻿namespace JConradOOPProject.GameObjects.Tools.Shields
 {
+    using System;
+
+    [Serializable]
     public abstract class Shield : Item
     {
         public Shield()

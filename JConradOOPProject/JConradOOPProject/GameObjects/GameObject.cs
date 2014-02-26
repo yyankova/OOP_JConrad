@@ -7,8 +7,10 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.GameObjects
 {
+    [Serializable]
     public abstract class GameObject : BaseViewModel
     {
+        [NonSerialized]
         protected Position position;
 
         public GameObject()

@@ -7,6 +7,7 @@
     using System.Threading.Tasks;
     using JConradOOPProject.GameObjects.Tools.Weapons;
 
+    [Serializable]
     class ChainArmour : Shield
     {
         //constants 

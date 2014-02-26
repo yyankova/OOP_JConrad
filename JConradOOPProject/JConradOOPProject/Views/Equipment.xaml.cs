@@ -1,22 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
+﻿namespace JConradOOPProject.Views
+{
+using System;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using JConradOOPProject.ViewModels;
-using System.Linq;
-
-namespace JConradOOPProject.Views
-{
     using GameObjects.Tools;
     using GameObjects.Tools.Skills;
     using GameObjects.Tools.Weapons;
@@ -256,5 +244,4 @@ namespace JConradOOPProject.Views
             parent.Shop.Remove(item);
         }
     }
-
 }

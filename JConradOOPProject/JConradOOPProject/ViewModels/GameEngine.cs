@@ -8,6 +8,8 @@
     using JConradOOPProject.GameObjects.Tools.Weapons;
     using System;
     using System.Collections.ObjectModel;
+    using System.IO;
+    using System.Runtime.Serialization.Formatters.Binary;
     using System.Windows.Input;
 
     public class GameEngine : BaseViewModel
@@ -250,5 +252,104 @@
         {
             return true;
         }
+
+        public void SerializeSkills(string path)
+        {
+            try
+            {
+                using (Stream stream = File.Open(path, FileMode.Create))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, Skills);
+                }
+            }
+            catch (IOException ex)
+            {
+            }
+        }
+        public void SerializeInventory(string path)
+        {
+            try
+            {
+                using (Stream stream = File.Open(path, FileMode.Create))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, Inventory);
+                }
+            }
+            catch (IOException ex)
+            {
+            }
+        }
+        public void SerializeShop(string path)
+        {
+            try
+            {
+                using (Stream stream = File.Open(path, FileMode.Create))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+                    bin.Serialize(stream, Shop);
+                }
+            }
+            catch (IOException ex)
+            {
+            }
+        }
+
+        public ObservableCollection<Skill> DeserializeSkills(string path)
+        {
+            try
+            {
+                using (Stream stream = File.Open(path, FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+
+                    ObservableCollection<Skill> skills = (ObservableCollection<Skill>)bin.Deserialize(stream);
+
+                    return skills;
+                }
+            }
+            catch (IOException)
+            {
+                return null;
+            }
+        }
+        public ObservableCollection<Item> DeserializeInventory(string path)
+        {
+            try
+            {
+                using (Stream stream = File.Open(path, FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+
+                    ObservableCollection<Item> inventory = (ObservableCollection<Item>)bin.Deserialize(stream);
+
+                    return inventory;
+                }
+            }
+            catch (IOException)
+            {
+                return null;
+            }
+        }
+        public ObservableCollection<Item> DeserializeShop(string path)
+        {
+            try
+            {
+                using (Stream stream = File.Open(path, FileMode.Open))
+                {
+                    BinaryFormatter bin = new BinaryFormatter();
+
+                    ObservableCollection<Item> shop = (ObservableCollection<Item>)bin.Deserialize(stream);
+
+                    return shop;
+                }
+            }
+            catch (IOException)
+            {
+                return null;
+            }
+        }
+
     }
 }

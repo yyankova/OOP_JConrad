@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace JConradOOPProject.ViewModels
 {
+    [Serializable]
     public class BaseViewModel : INotifyPropertyChanged
     {
         protected void OnPropertyChanged(string propertyName)
@@ -16,6 +17,8 @@ namespace JConradOOPProject.ViewModels
                 this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        [field: NonSerialized]
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }
