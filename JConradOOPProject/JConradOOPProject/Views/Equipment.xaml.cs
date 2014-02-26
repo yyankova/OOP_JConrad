@@ -160,13 +160,13 @@ using JConradOOPProject.ViewModels;
                 parent.Shop = new ObservableCollection<Item>();
 
                 parent.Shop.Add(new DoubleAxe(id++, "Double Axe", 100, imageSource: "item"));
-                parent.Shop.Last().Description = "TODO: add description";
+                parent.Shop.Last().Description = "Double size axe for better satisfaction.";
                 parent.Shop.Add(new Knife(id++, "Knife", 100, imageSource: "item"));
-                parent.Shop.Last().Description = "TODO: add description";
+                parent.Shop.Last().Description = "Short cold weapon for quick stabbing";
                 parent.Shop.Add(new Skill(id++, "Some skill 3", 85, 1m, 1m, 1m, "item"));
-                parent.Shop.Last().Description = "TODO: add description, change image";
+                parent.Shop.Last().Description = "Skill enriching your perfomance.";
                 parent.Shop.Add(new Skill(id++, "Some skill 4", 150, 2m, 2m, 2m, "item"));
-                parent.Shop.Last().Description = "TODO: add description, change image";
+                parent.Shop.Last().Description = "Enhances your attack and defence.";
             }
 
             Shop.ItemsSource = parent.Shop;
