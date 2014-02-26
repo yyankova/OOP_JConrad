@@ -28,12 +28,9 @@
                                         <TextBlock Name="ItemName" FontFamily="Arial" FontWeight="Bold" Foreground="#412c11" Text="{Binding Name}" />
                                         <TextBlock Name="ItemDescription" FontSize="11" Foreground="#634927" Text="{Binding Description}" />
                                         <TextBlock Name="ItemSpecialValue" FontWeight="Bold" Foreground="#4ead08" Text="{Binding SpecialValue}">
-                                            <TextBlock.Effect>
-                                                <DropShadowEffect ShadowDepth="1" Direction="270" Color="Black" Opacity="1.0" BlurRadius="1" />
-                                            </TextBlock.Effect>
-                                        </TextBlock>
+                                    </TextBlock>
                                     </StackPanel>
-                                    <TextBlock TextAlignment="Right" Margin="0,0,15,0" FontSize="17" Foreground="#265702" Text="Equipped" VerticalAlignment="Center" Visibility="Visible" />
+                                    <TextBlock TextAlignment="Right" Margin="0,0,30,0" FontSize="17" Foreground="#265702" Text="{Binding Path=Pesho}" VerticalAlignment="Center" Visibility="Visible" />
                                 </DockPanel>
                             </StackPanel>
                         
@@ -151,10 +148,15 @@
                             </ListBox.Resources>
                             <!-- Dynamic Generation -->
                         </ListBox>
-                        <Button Content="Use" HorizontalAlignment="Right" Click="ButtonUse_Click" />
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                            <Button Name="Slot1" Content="Slot 1" Click="ButtonSlot_Click" />
+                            <Button Name="Slot2" Content="Slot 2" Click="ButtonSlot_Click" />
+                            <Button Name="Slot3" Content="Slot 3" Click="ButtonSlot_Click" />
+                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </TabItem>
+            
             <TabItem Header="Shop">
                 <Grid VerticalAlignment="Center">
                     <StackPanel Orientation="Vertical">
@@ -164,7 +166,7 @@
                             </ListBox.Resources>
                             <!-- Dynamic Generation -->
                         </ListBox>
-                        <Button Content="Use" HorizontalAlignment="Right" Click="ButtonUse_Click" />
+                        <Button Content="Buy" HorizontalAlignment="Right" Click="ButtonUse_Click" />
                     </StackPanel>
                 </Grid>
             </TabItem>

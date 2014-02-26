@@ -1,10 +1,20 @@
+<<<<<<< HEAD
 ﻿namespace JConradOOPProject.Views
 {
 using System;
+=======
+﻿using System;
+>>>>>>> Slight modifications on equipment menu
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 using JConradOOPProject.ViewModels;
+<<<<<<< HEAD
+=======
+
+namespace JConradOOPProject.Views
+{
+>>>>>>> Slight modifications on equipment menu
     using GameObjects.Tools;
     using GameObjects.Tools.Skills;
     using GameObjects.Tools.Weapons;
@@ -39,51 +49,66 @@ using JConradOOPProject.ViewModels;
         /// <param name="e"></param>
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
-            TabItem ti = this.TabControl.SelectedItem as TabItem;
+            //TabItem ti = this.TabControl.SelectedItem as TabItem;
 
-            if (ti.Header.ToString().Equals("Inventory", StringComparison.Ordinal) == true)
+            //if (ti.Header.ToString().Equals("Inventory", StringComparison.Ordinal) == true)
+            //{
+            //}
+            //else if (ti.Header.ToString().Equals("Skills", StringComparison.Ordinal) == true)
+            //{
+
+            //}
+            //else if (ti.Header.ToString().Equals("Shop", StringComparison.Ordinal) == true)
+            //{
+
+            //}
+            //else
+            //{
+            //    //TODO: raise exception here!
+            //}
+
+            this.ValidateListBox(Inventory);
+            
+            Equip((Item)this.Inventory.SelectedItem);
+        }
+
+        /// <summary>
+        /// Button SLOT
+        /// Gets the selected skill from the listbox and assigns it to the respective slot (1, 2 or 3 accordingly).
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonSlot_Click(object sender, RoutedEventArgs e)
+        {
+            this.ValidateListBox(Skills);
+
+            Button slot = (Button)sender;
+
+            Equip((Item)this.Skills.SelectedItem);
+
+            // MessageBox.Show(slot.Name);
+        }
+
+        /// <summary>
+        /// Button BUY
+        /// Performs buying operation with the selected item.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonBuy_Click(object sender, RoutedEventArgs e)
+        {
+            this.ValidateListBox(Shop);
+
+            try
             {
-                if (this.Inventory.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select an item.", "Select An Item");
-                    return;
-                }
-
-                Equip((Item)this.Inventory.SelectedItem);
-
+                Buy((Item)this.Shop.SelectedItem);
             }
-            else if (ti.Header.ToString().Equals("Skills", StringComparison.Ordinal) == true)
+            catch (ArgumentOutOfRangeException ex) //TODO: custom exception here
             {
-                if (this.Skills.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select an item.", "Select An Item");
-                    return;
-                }
-
-                Equip((Item)this.Skills.SelectedItem);
-            }
-            else if (ti.Header.ToString().Equals("Shop", StringComparison.Ordinal) == true)
-            {
-                if (this.Shop.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Please select an item.", "Select An Item");
-                    return;
-                }
-                try
-                {
-                    Buy((Item)this.Shop.SelectedItem);
-                }
-                catch (ArgumentOutOfRangeException ex) //TODO: custom exception here
-                {
-                    string msg = string.Format("Your gold ({0}) is not enough to buy {1} ({2})",
-                        parent.Player.GoldAmount, ((Item)this.Shop.SelectedItem).Name,
-                        ((Item)this.Shop.SelectedItem).Price);
-                    MessageBox.Show(msg, "Not enough money");
-                }
-            }
-            else
-            {
-                //TODO: raise exception here!
+                string msg = string.Format("Your gold ({0}) is not enough to buy {1} ({2})",
+                    parent.Player.GoldAmount, ((Item)this.Shop.SelectedItem).Name,
+                    ((Item)this.Shop.SelectedItem).Price);
+                MessageBox.Show(msg, "Not enough money");
             }
         }
 
@@ -120,6 +145,7 @@ using JConradOOPProject.ViewModels;
             }
 
             Inventory.ItemsSource = parent.Inventory;
+
 
             //TODO: add handling of property SpecialValue, where?
             //if (item is Weapon)
@@ -243,5 +269,23 @@ using JConradOOPProject.ViewModels;
             parent.Player.GoldAmount -= (int)item.Price;
             parent.Shop.Remove(item);
         }
+<<<<<<< HEAD
     }
 }
+=======
+
+        /// <summary>
+        /// Checks whether a listbox has a selected item. If not, informs the user with a message.
+        /// </summary>
+        /// <param name="target"></param>
+        private void ValidateListBox(ListBox target)
+        {
+            if (target.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select an item.", "Select An Item");
+                return;
+            }
+        }
+    }
+}
+>>>>>>> Slight modifications on equipment menu
