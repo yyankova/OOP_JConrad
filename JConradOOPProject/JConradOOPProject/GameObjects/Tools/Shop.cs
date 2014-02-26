@@ -3,10 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-    using JConradOOPProject.GameObjects.Tools.Shields;
-    using JConradOOPProject.GameObjects.Tools.Weapons;
     using JConradOOPProject.GameObjects.Tools.Skills;
 
     public class Shop
@@ -54,50 +50,15 @@
         {
             items = new List<Item>();
 
-            //TODO: cenite na ajtymite da se syobrazqt s harakteristikite im!
-            //TODO: write some valid descriptions!
-            //TODO: remove the above comment !
-
-            //stock shields
-            Items.Add(new ChainArmour(1, "Chain Armour", 125));
-            Items.Last().Description = "TODO: add description";
-
-            Items.Add(new SweatCloth(2, "Sweat Cloth", 85));
-            Items.Last().Description = "TODO: add description";
-
-            //stock weapons
-            Items.Add(new Axe(3, "Axe", 65));
-            Items.Last().Description = "TODO: add description";
-
-            Items.Add(new Chopper(4, "Chopper", 100));
-            Items.Last().Description = "TODO: add description";
-
-            Items.Add(new Cutter(5, "Cutter", 100));
-            Items.Last().Description = "TODO: add description";
-
-            Items.Add(new DoubleAxe(6, "Double Axe", 100));
-            Items.Last().Description = "TODO: add description";
-
-            Items.Add(new Knife(7, "Knifes", 100));
-            Items.Last().Description = "TODO: add description";
-
             //stock skills
-            Items.Add(new oldAttack(8, "oldAttack", 100));
+            //TODO: provide some meaningful names and descriptions
+            Items.Add(new Skill(8, "Some skill...", 100));
             Items.Last().Description = "TODO: add description";
 
-            Items.Add(new oldDefence(9, "Defense", 100));
+            Items.Add(new Skill(9, "Another skill...", 100));
             Items.Last().Description = "TODO: add description";
         }
 
-        //for debugging purposes
-        public void PrintAllItems()
-        {
-            Console.WriteLine("\nAll items in shop:");
-            int cnt = 1;
-            foreach (var item in Items)
-            {
-                Console.WriteLine("{0}: {1} - {2}", cnt++, item.Name, item.Description);
-            }
-        }
+
     }
 }
