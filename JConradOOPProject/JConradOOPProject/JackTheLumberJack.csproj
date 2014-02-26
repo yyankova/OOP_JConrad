@@ -218,9 +218,6 @@
     <Resource Include="Images\loadgame_intro.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\location_intro.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\battle_intro.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
