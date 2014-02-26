@@ -18,16 +18,16 @@ namespace JConradOOPProject.Views
     /// <summary>
     /// Button CONTINUE action delegate
     /// </summary>
-    public delegate void PushIntroAction();
+    public delegate void TriggerIntroAction();
 
     /// <summary>
     /// Interaction logic for Intro.xaml
     /// </summary>
     public partial class Intro : UserControl
     {
-        private PushIntroAction action;
+        private TriggerIntroAction action;
 
-        public Intro(string background, string description, PushIntroAction currentAction)
+        public Intro(string background, string description, TriggerIntroAction currentAction)
         {
             InitializeComponent();
 

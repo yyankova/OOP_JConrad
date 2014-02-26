@@ -92,7 +92,7 @@ namespace JConradOOPProject.Views
 
                 // New Game intro >>
 
-                PushIntroAction continueAction = delegate()
+                TriggerIntroAction continueAction = delegate()
                 {
                     MainMenu.SwitchWindowContent(new GameMap(this.gameEngine), true);
                 };

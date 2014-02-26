@@ -42,7 +42,14 @@ namespace JConradOOPProject.Views
         {
             Button location = (Button)sender;
 
-            MessageBox.Show(location.Name, "Returns clicked Button.Name");
+            string locationText = location.Name.ToString().Remove(0, 8);
+
+            TriggerIntroAction continueAction = delegate()
+            {
+                // Fill with battle
+            };
+
+            MainMenu.SwitchWindowContent(new Intro("battle_intro.jpg", String.Concat("Heading to ", locationText, " for battle..."), continueAction), true);
         }
 
         /// <summary>
