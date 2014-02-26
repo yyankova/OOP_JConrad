@@ -25,7 +25,10 @@ namespace JConradOOPProject.ViewModels
         private ICommand run;
 
         public GameEngine()
-        { }
+        {
+            InitializeEnemy();
+            InitializePlayer();
+        }
 
         //Properties to be bound
         public ICommand Attack
@@ -145,11 +148,15 @@ namespace JConradOOPProject.ViewModels
             }
         }
         
+        public Lumberjack Player
+        {
+            get
+            {
+                return this.player;
+            }
+        }
         public void StartGame()
         {
-            InitializeEnemy();
-            InitializePlayer();
-            
             while (this.player.IsAlive && this.enemy.IsAlive)
             {
                 if (!this.PlayerCanAttack)
