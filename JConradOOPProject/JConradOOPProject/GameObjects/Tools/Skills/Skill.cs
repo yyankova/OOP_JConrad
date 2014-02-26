@@ -33,15 +33,20 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
         }
 
         public Skill(byte id, string inputName, decimal inputPrice, decimal defence)
-            : base(id, inputName, inputPrice)
+            : this(id, inputName, inputPrice)
         {
-            this.DamageCoeff = 1.0m;
-            this.DefenceCoeff = 1.0m;
-            this.HitRateCoeff = 1.0m;
         }
 
         public Skill(byte id, string inputName, decimal inputPrice, decimal damage, decimal hitrate, decimal defence)
             : base(id, inputName, inputPrice)
+        {
+            this.DamageCoeff = damage;
+            this.DefenceCoeff = defence;
+            this.HitRateCoeff = hitrate;
+        }
+        
+        public Skill (byte id, string inputName, decimal inputPrice, decimal damage, decimal hitrate, decimal defence, string imageSource)
+            : base (id, inputName, inputPrice, imageSource)
         {
             this.DamageCoeff = damage;
             this.DefenceCoeff = defence;

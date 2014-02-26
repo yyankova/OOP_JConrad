@@ -3,8 +3,6 @@
     using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
     using JConradOOPProject;
     using JConradOOPProject.GameObjects.Tools;
     using JConradOOPProject.GameObjects.Tools.Shields;
@@ -76,44 +74,6 @@
         /// <summary>
         /// Buy a weapon/shield/skill from the shop
         /// </summary>
-        public void BuyByNameAndType(Shop shop, string equipmentName, EquipmentType equipmentType)
-        {
-            //find this equipment in the shop
-            try
-            {
-                Item itemToBuy = shop.Items.First(it => it.Name == equipmentName);
-                CheckItemType(itemToBuy, equipmentType);
-
-                if (itemToBuy.Price > GoldAmount)
-                {
-                    throw new ArgumentOutOfRangeException(string.Format("Not enough gold to buy {0}", equipmentName));
-                }
-                BuyItem(shop, itemToBuy);
-            }
-            catch (System.InvalidOperationException)
-            {
-                throw new ArgumentOutOfRangeException(string.Format("Item {0} not found in inventory", equipmentName));
-            }
-        }
-
-        public void BuyItem(Shop shop, Item item)
-        {
-            if (item is Weapon)
-            {
-                Weapons.Add((Weapon)item);
-            }
-            else if (item is Shield)
-            {
-                Shields.Add((Shield)item);
-            }
-            else if (item is Skill)
-            {
-                Skills.Add((Skill)item);
-            }
-
-            GoldAmount -= (int)item.Price;
-            shop.RemoveItem(item);
-        }
 
         /// <summary>
         /// Sell a weapon or shiled for 1/2 of its price
@@ -136,28 +96,6 @@
             this.CurrentSkills.Add(null);
             this.CurrentSkills.Add(null);
             this.CurrentSkills.Add(null);
-        }
-
-        //for debugging purposes
-        public void PrintInventory()
-        {
-            Console.WriteLine("\nAvailable items in inventory: ");
-            foreach (var item in Inventory)
-            {
-                Console.WriteLine("{0} - {1}", item.Name, item.Description);
-            }
-        }
-
-        //for debugging purposes
-        public void PrintEquipment()
-        {
-            Console.WriteLine("\nCurrent Equipment: ");
-            if (CurrentWeapon != null) Console.WriteLine("Weapon: {0}", CurrentWeapon.Name);
-            if (CurrentShield != null) Console.WriteLine("Shield: {0}", CurrentShield.Name);
-            for (int i = 0; i < CurrentSkills.Count; i++)
-            {
-                if (CurrentSkills[i] != null) Console.WriteLine("Skill{0}: {1}", i + 1, CurrentSkills[i].Name);
-            }
         }
 
         private void CheckItemType(Item item, EquipmentType type)

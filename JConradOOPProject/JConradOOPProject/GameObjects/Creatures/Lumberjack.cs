@@ -17,14 +17,14 @@ namespace JConradOOPProject.GameObjects.Creatures
         public int CurrentExperience { get; set; }
         public int GoldAmount { get; set; }
         
-        public List<Skill> Skills { get; set; }
         public List<Skill> CurrentSkills { get; private set; } // max 3 skills; set is private because 
                            // we must add skills only from one place to make sure the slots are exactly 3
         public int SkillIndex { get; set; } //0, 1, 2: with which skill the attack is performed
 
+        //to remove Weaons, Shields and Skills because they are now in class Equipment
         public List<Weapon> Weapons { get; set; }
-
         public List<Shield> Shields { get; set; }
+        public List<Skill> Skills { get; set; }
 
         public Lumberjack(string name, int level, int experience, int goldAmount)
             : this(name, new Position(), 0, 0, level, experience, goldAmount)
@@ -35,9 +35,9 @@ namespace JConradOOPProject.GameObjects.Creatures
             this.CurrentLevel = level;
             this.CurrentExperience = experience;
             this.GoldAmount = goldAmount;
-            this.Skills = new List<Skill>();
-            this.CurrentSkills = new List<Skill>();
+            InitializeSkillSlots();
             this.SkillIndex = 0;
+            this.Skills = new List<Skill>();
             this.Weapons = new List<Weapon>();
             this.Shields = new List<Shield>();
         }
@@ -59,6 +59,14 @@ namespace JConradOOPProject.GameObjects.Creatures
             this.GoldAmount += enemy.WorthInGold;
             this.CurrentExperience += GameParameters.GetExperienceReward(this.CurrentLevel);
             this.CurrentLevel = GameParameters.GetCurrentLevel(this.CurrentExperience);
+        }
+
+        private void InitializeSkillSlots()
+        {
+            this.CurrentSkills = new List<Skill>();
+            this.CurrentSkills.Add(null); //we want exactly 3 slots, must be initialised before entering the inventory
+            this.CurrentSkills.Add(null);
+            this.CurrentSkills.Add(null);
         }
     }
 }
