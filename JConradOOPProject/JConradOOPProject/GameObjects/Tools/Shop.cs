@@ -32,13 +32,13 @@
         /// <summary>
         /// When the hero buys an item from the shop, it is removed from the shop
         /// </summary>
-        public void RemoveItemByName (string itemName)
+        public void RemoveItemByName(string itemName)
         {
             Item itemToRemove = Items.First(it => it.Name == itemName);
             RemoveItem(itemToRemove);
         }
 
-        public void RemoveItem (Item item)
+        public void RemoveItem(Item item)
         {
             Items.Remove(item);
         }

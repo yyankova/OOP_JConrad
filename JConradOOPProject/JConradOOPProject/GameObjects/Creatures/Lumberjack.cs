@@ -16,9 +16,9 @@ namespace JConradOOPProject.GameObjects.Creatures
         public int CurrentLevel { get; set; }
         public int CurrentExperience { get; set; }
         public int GoldAmount { get; set; }
-        
+
         public List<Skill> CurrentSkills { get; private set; } // max 3 skills; set is private because 
-                           // we must add skills only from one place to make sure the slots are exactly 3
+        // we must add skills only from one place to make sure the slots are exactly 3
         public int SkillIndex { get; set; } //0, 1, 2: with which skill the attack is performed
 
         //to remove Weaons, Shields and Skills because they are now in class Equipment

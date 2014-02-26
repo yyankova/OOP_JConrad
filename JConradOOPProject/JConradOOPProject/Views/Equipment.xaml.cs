@@ -52,15 +52,14 @@ namespace JConradOOPProject.Views
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
             TabItem ti = this.TabControl.SelectedItem as TabItem;
-            Console.WriteLine(ti.Header);
 
             if (ti.Header.ToString().Equals("Inventory", StringComparison.Ordinal) == true)
             {
-            if (this.Inventory.SelectedIndex == -1)
-            {
-                MessageBox.Show("Please select an item.", "Select An Item");
-                return;
-            }
+                if (this.Inventory.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Please select an item.", "Select An Item");
+                    return;
+                }
 
                 Equip((Item)this.Inventory.SelectedItem);
 
@@ -77,7 +76,6 @@ namespace JConradOOPProject.Views
             }
             else if (ti.Header.ToString().Equals("Shop", StringComparison.Ordinal) == true)
             {
-                Console.WriteLine("we are in Shop tab");
                 if (this.Shop.SelectedIndex == -1)
                 {
                     MessageBox.Show("Please select an item.", "Select An Item");
@@ -138,10 +136,10 @@ namespace JConradOOPProject.Views
             Inventory.ItemsSource = this.inventory;
 
             //TODO: add handling of property SpecialValue, where?
-        //        if (item is Weapon)
-        //            specialValue = String.Concat(((Weapon)item.HitPoints), " Attack");
-        //        else if (item is Shield)
-        //            specialValue = String.Concat(((Shield) item).DefPoints, " Defence");
+            //if (item is Weapon)
+            //    specialValue = String.Concat(((Weapon)item.HitPoints), " Attack");
+            //else if (item is Shield)
+            //    specialValue = String.Concat(((Shield) item).DefPoints, " Defence");
         }
 
         /// <summary>
@@ -178,31 +176,28 @@ namespace JConradOOPProject.Views
 
             shop.Add(new Skill(id++, "Some skill 3", 85, 1m, 1m, 1m, "item"));
             shop.Last().Description = "TODO: add description, change image";
-                
+
             shop.Add(new Skill(id++, "Some skill 4", 150, 2m, 2m, 2m, "item"));
             shop.Last().Description = "TODO: add description, change image";
 
             Shop.ItemsSource = shop;
 
             //TODO: add handling of SpecialValue
-        //        string specialValue = String.Concat("Damage Coef: ", skill.DamageCoeff, skill.DefenceCoeff, " Defence Coef; ");
+            //string specialValue = String.Concat("Damage Coef: ", skill.DamageCoeff, skill.DefenceCoeff, " Defence Coef; ");
 
             //if (item is Weapon)
             //    specialValue = String.Concat(((Weapon)item.HitPoints), " Attack");
             //else if (item is Shield)
             //    specialValue = String.Concat(((Shield) item).DefPoints, " Defence");
-    }
+        }
 
         /// <summary>
         /// Handle equipping the hero with a weapon, shield or skill
         /// </summary>
         public void Equip(Item item)
         {
-            Console.WriteLine("Jack has {0} gold", parent.Player.GoldAmount);
-
             if (item is Weapon)
             {
-                Console.WriteLine("Jack wants a weapon");
                 //take the weapon that the hero currently has and place it in the inventory
                 if (parent.Player.CurrentWeapon != null)
                 {
@@ -211,13 +206,9 @@ namespace JConradOOPProject.Views
 
                 parent.Player.CurrentWeapon = (Weapon)item;
                 inventory.Remove(item);
-
-                Console.WriteLine("Inventory now-------");
-                foreach (var it in inventory) Console.WriteLine("{0} {1}", it.IdItem, it.Name);
             }
             else if (item is Shield)
             {
-                Console.WriteLine("Jack wants a shield");
                 //take the shield that the hero currently has and place it in the inventory
                 if (parent.Player.CurrentShield != null)
                 {
@@ -226,25 +217,20 @@ namespace JConradOOPProject.Views
 
                 parent.Player.CurrentShield = (Shield)item;
                 this.inventory.Remove(item);
-
-                Console.WriteLine("Inventory now-------");
-                foreach (var it in inventory) Console.WriteLine("{0} {1}", it.IdItem, it.Name);
             }
             else if (item is Skill)
-    {
-                Console.WriteLine("jack wants a skill");
-
+            {
                 //TODO: here get the correct slot!!!
                 int slot = 0;
 
                 if (parent.Player.CurrentSkills[slot] != null)
-        {
+                {
                     this.skills.Add(parent.Player.CurrentSkills[slot]);
                 }
                 parent.Player.CurrentSkills[slot] = (Skill)item;
                 this.skills.Remove((Skill)item);
+            }
         }
-    }
 
         /// <summary>
         /// Buy a weapon/shield/skill from the shop

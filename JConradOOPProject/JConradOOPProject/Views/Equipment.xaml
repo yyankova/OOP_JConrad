@@ -21,7 +21,6 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate>
-
                             <StackPanel Name="ItemStack" Background="#e1a95c" Margin="0,0,0,2" Orientation="Horizontal" Height="70">
                                 <DockPanel Width="650">
                                     <Image Name="ItemImage" Width="50" Height="50" Margin="10,0,0,0" Source="{Binding ImageSource}" />
@@ -127,7 +126,7 @@
         </UserControl.Resources>
     <Grid>
         <Image Source="../Images/equipment_menu.jpg" Stretch="Fill" />
-        <TabControl HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="450">
+        <TabControl Name="TabControl" HorizontalAlignment="Center" VerticalAlignment="Center" Width="700" Height="450">
             
             <TabItem Header="Inventory">
                 <Grid VerticalAlignment="Center">
@@ -144,10 +143,30 @@
             </TabItem>
             
             <TabItem Header="Skills">
-
+                <Grid VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical">
+                        <ListBox Name="Skills">
+                            <ListBox.Resources>
+                                <Style BasedOn="{StaticResource inventory-layout}" TargetType="{x:Type ListBoxItem}" />
+                            </ListBox.Resources>
+                            <!-- Dynamic Generation -->
+                        </ListBox>
+                        <Button Content="Use" HorizontalAlignment="Right" Click="ButtonUse_Click" />
+                    </StackPanel>
+                </Grid>
             </TabItem>
             <TabItem Header="Shop">
-
+                <Grid VerticalAlignment="Center">
+                    <StackPanel Orientation="Vertical">
+                        <ListBox Name="Shop">
+                            <ListBox.Resources>
+                                <Style BasedOn="{StaticResource inventory-layout}" TargetType="{x:Type ListBoxItem}" />
+                            </ListBox.Resources>
+                            <!-- Dynamic Generation -->
+                        </ListBox>
+                        <Button Content="Use" HorizontalAlignment="Right" Click="ButtonUse_Click" />
+                    </StackPanel>
+                </Grid>
             </TabItem>
         </TabControl>
         <Button Content="Back" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,10,10" Click="ButtonBack_Click" />

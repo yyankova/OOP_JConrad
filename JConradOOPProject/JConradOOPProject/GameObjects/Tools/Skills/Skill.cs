@@ -44,7 +44,7 @@ namespace JConradOOPProject.GameObjects.Tools.Skills
             this.DefenceCoeff = defence;
             this.HitRateCoeff = hitrate;
         }
-        
+
         public Skill (byte id, string inputName, decimal inputPrice, decimal damage, decimal hitrate, decimal defence, string imageSource)
             : base (id, inputName, inputPrice, imageSource)
         {
