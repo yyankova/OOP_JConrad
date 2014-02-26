@@ -14,7 +14,7 @@ namespace JConradOOPProject.ViewModels
         public static int PlayerHitChance = 50;
         public static int EnemyHitChance = 50;
         public static int InitialLevel = 1;
-        public static int InitialGold = 100;
+        public static int InitialGold = 100; 
         public static int InitialExperience = 0;
 
         public static int GetCurrentLevel(int experience)

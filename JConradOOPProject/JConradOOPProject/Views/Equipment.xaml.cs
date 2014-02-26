@@ -90,7 +90,7 @@ namespace JConradOOPProject.Views
                     string msg = string.Format("Your gold ({0}) is not enough to buy {1} ({2})",
                         parent.Player.GoldAmount, ((Item)this.Shop.SelectedItem).Name,
                         ((Item)this.Shop.SelectedItem).Price);
-                    MessageBox.Show("Please select an item.", "Select An Item");
+                    MessageBox.Show(msg, "Not enough money");
                 }
             }
             else
