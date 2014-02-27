@@ -80,6 +80,7 @@
     <Compile Include="GameObjects\Tools\Weapons\Weapon.cs" />
     <Compile Include="Interfaces\IAttack.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="ViewModels\BattleAnimationTaskThreading.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
     <Compile Include="GameParameters\GameParameters.cs" />
     <Compile Include="Views\Battle.xaml.cs">
