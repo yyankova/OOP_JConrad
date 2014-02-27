@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
+using JConradOOPProject.ViewModels;
 
 namespace JConradOOPProject.Views
 {
@@ -20,30 +22,19 @@ namespace JConradOOPProject.Views
     /// </summary>
     public partial class LoadGame : UserControl
     {
-        private int playerUniqID;
+        private GameEngine gameEngine;
 
         public LoadGame()
         {
             InitializeComponent();
 
-            // Testing purposes. Remove Later
+            DirectoryInfo savedGames = new DirectoryInfo(@".\Saved Games\");
 
-            List<Player> players = new List<Player>
-            {
-                new Player(0, "Pesho", 12),
-                new Player(1, "Dinko", 21),
-                new Player(2, "Zafir", 25)
-            };
+            FileInfo[] saveFiles = savedGames.GetFiles("*.txt");
 
-            this.SavedGamesList.ItemsSource = players;
+            this.SavedGamesList.ItemsSource = saveFiles;
         }
 
-        public int PlayerUniqID
-        {
-            get { return this.playerUniqID; }
-            
-            // Does NOT need setter. The user cannot access/modify the variable.
-        }
 
         /// <summary>
         /// Button PLAY
@@ -59,13 +50,35 @@ namespace JConradOOPProject.Views
                 return;
             }
 
-            byte uID = ((Player)this.SavedGamesList.SelectedItem).Id;
+            try
+            {
+                string currentDir = Environment.CurrentDirectory;
+                string loadFilePath = currentDir + "\\Saved Games\\" + SavedGamesList.SelectedItem.ToString();
 
-            // Assigns the ID
-            this.playerUniqID = uID;
+                StreamReader loadFromFile = new StreamReader(loadFilePath);
 
-            // Test purposes
-            MessageBox.Show(this.playerUniqID.ToString(), "Prints player ID");
+                //Load Name, Level, Experience and Gold
+                this.gameEngine.PlayerName = loadFromFile.ReadLine();
+                this.gameEngine.PlayerLevel = int.Parse(loadFromFile.ReadLine());
+                this.gameEngine.PlayerExperience = int.Parse(loadFromFile.ReadLine());
+                this.gameEngine.PlayerGold = int.Parse(loadFromFile.ReadLine());
+
+                //Load Inventory, Skills and Shop
+                this.gameEngine.DeserializeInventory(loadFromFile.ReadLine());
+                this.gameEngine.DeserializeSkills(loadFromFile.ReadLine());
+                this.gameEngine.DeserializeShop(loadFromFile.ReadLine());
+
+                loadFromFile.Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error.");
+            }
+
+            // Initializes the game
+            this.gameEngine.Initialize();
+
+
         }
 
         /// <summary>
@@ -77,21 +90,6 @@ namespace JConradOOPProject.Views
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             MainMenu.SwitchWindowContent(new StartMenu());
-        }
-    }
-
-    // To be deleted
-    public class Player
-    {
-        public byte Id { get; set; }
-        public string Name { get; set; }
-        public byte Level { get; set; }
-
-        public Player(byte playerId, string playerName, byte playerLvl)
-        {
-            this.Id = playerId;
-            this.Name = playerName;
-            this.Level = playerLvl;
         }
     }
 }

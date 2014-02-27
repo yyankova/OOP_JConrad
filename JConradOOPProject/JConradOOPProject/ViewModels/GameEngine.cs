@@ -9,6 +9,7 @@
     using System;
     using System.Collections.ObjectModel;
     using System.IO;
+    using System.Collections.Generic;
     using System.Runtime.Serialization.Formatters.Binary;
     using System.Windows.Input;
 
@@ -106,11 +107,15 @@
                 return this.player.CurrentShield;
             }
         }
-        public decimal PlayerGold
+        public int PlayerGold
         {
             get
             {
                 return this.player.GoldAmount;
+            }
+            set
+            {
+                this.player.GoldAmount = value;
             }
         }
         public decimal PlayerHealth
@@ -133,12 +138,20 @@
             {
                 return this.player.CurrentLevel;
             }
+            set
+            {
+                this.player.CurrentLevel = value;
+            }
         }
         public int PlayerExperience
         {
             get
             {
                 return this.player.CurrentExperience;
+            }
+            set
+            {
+                this.player.CurrentExperience = value;
             }
         }
         public string PlayerName
@@ -351,5 +364,57 @@
             }
         }
 
+
+        public void Save()
+        {
+            try
+            {
+                //Save paths for later use
+                string saveFilePath = @".\Saved Games\" + PlayerName + ".txt";
+                string inventoryPath = @".\Saved Games\" + PlayerName + "Inventory.bin";
+                string skillsPath = @".\Saved Games\" + PlayerName + "Skills.bin";
+                string shopPath = @".\Saved Games\" + PlayerName + "Shop.bin";
+
+                //Delete files, incase overwriting previous save
+                File.Delete(saveFilePath);
+                File.Delete(inventoryPath);
+                File.Delete(skillsPath);
+                File.Delete(shopPath);
+
+                //Save data to files
+                SerializeInventory(inventoryPath);
+                SerializeSkills(skillsPath);
+                SerializeShop(shopPath);
+
+                StreamWriter writeSave = new StreamWriter(saveFilePath);
+
+                //Write current name, current level and experience, current gold
+                writeSave.WriteLine(PlayerName);
+                writeSave.WriteLine(PlayerLevel);
+                writeSave.WriteLine(PlayerExperience);
+                writeSave.WriteLine(PlayerGold);
+
+                //Write paths for the load method
+                writeSave.WriteLine("@\"" + inventoryPath + "\"");
+                writeSave.WriteLine("@\"" + skillsPath + "\"");
+                writeSave.WriteLine("@\"" + shopPath + "\"");
+
+                writeSave.Close();
+            }
+            catch (Exception)
+            {
+            }
+        }
+        public void Load()
+        {
+            try
+            {
+
+
+            }
+            catch (Exception)
+            {
+            }
+        }
     }
 }
