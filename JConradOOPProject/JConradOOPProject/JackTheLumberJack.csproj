@@ -83,7 +83,9 @@
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\GameEngine.cs" />
     <Compile Include="GameParameters\GameParameters.cs" />
-    <Compile Include="ViewModels\InputOutputSystem.cs" />
+    <Compile Include="Views\Battle.xaml.cs">
+      <DependentUpon>Battle.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Equipment.xaml.cs">
       <DependentUpon>Equipment.xaml</DependentUpon>
     </Compile>
@@ -113,6 +115,10 @@
     <Compile Include="Views\StartMenu.xaml.cs">
       <DependentUpon>StartMenu.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Battle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Equipment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -219,6 +225,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\battle_intro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Items\Icons\axe.png" />
+    <Resource Include="Images\Items\Icons\chainsaw.png" />
+    <Resource Include="Images\Items\Icons\dualaxe.png" />
+    <Resource Include="Images\Items\Icons\knife.png" />
+    <Resource Include="Images\Items\Icons\machete.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -28,13 +28,8 @@ namespace JConradOOPProject.Views
         {
             InitializeComponent();
 
-            DirectoryInfo savedGames = new DirectoryInfo(@".\Saved Games\");
-
-            FileInfo[] saveFiles = savedGames.GetFiles("*.txt");
-
-            this.SavedGamesList.ItemsSource = saveFiles;
+            this.FillLoadGameList();
         }
-
 
         /// <summary>
         /// Button PLAY
@@ -53,7 +48,7 @@ namespace JConradOOPProject.Views
             try
             {
                 string currentDir = Environment.CurrentDirectory;
-                string loadFilePath = currentDir + "\\Saved Games\\" + SavedGamesList.SelectedItem.ToString();
+                string loadFilePath = currentDir + "\\saves\\" + SavedGamesList.SelectedItem.ToString();
 
                 StreamReader loadFromFile = new StreamReader(loadFilePath);
 
@@ -90,6 +85,27 @@ namespace JConradOOPProject.Views
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
             MainMenu.SwitchWindowContent(new StartMenu());
+        }
+
+        /// <summary>
+        /// Fills the load game list with all the available players.
+        /// </summary>
+        private void FillLoadGameList()
+        {
+            string path = @".\saves\";
+
+            // Checks if the specified path exists
+            if (Directory.Exists(path))
+            {
+                DirectoryInfo savedGames = new DirectoryInfo(path);
+                FileInfo[] saveFiles = savedGames.GetFiles("*.txt");
+
+                this.SavedGamesList.ItemsSource = saveFiles;
+            }
+            else // If not, creates one for future use
+            {
+                System.IO.Directory.CreateDirectory(path);
+            }
         }
     }
 }

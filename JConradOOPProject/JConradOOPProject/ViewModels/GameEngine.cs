@@ -370,10 +370,10 @@
             try
             {
                 //Save paths for later use
-                string saveFilePath = @".\Saved Games\" + PlayerName + ".txt";
-                string inventoryPath = @".\Saved Games\" + PlayerName + "Inventory.bin";
-                string skillsPath = @".\Saved Games\" + PlayerName + "Skills.bin";
-                string shopPath = @".\Saved Games\" + PlayerName + "Shop.bin";
+                string saveFilePath = @".\saves\" + PlayerName + ".txt";
+                string inventoryPath = @".\saves\" + PlayerName + "Inventory.bin";
+                string skillsPath = @".\saves\" + PlayerName + "Skills.bin";
+                string shopPath = @".\saves\" + PlayerName + "Shop.bin";
 
                 //Delete files, incase overwriting previous save
                 File.Delete(saveFilePath);

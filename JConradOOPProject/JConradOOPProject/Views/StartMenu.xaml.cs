@@ -37,7 +37,8 @@ namespace JConradOOPProject.Views
         }
 
         /// <summary>
-        /// 
+        /// Button LOAD GAME
+        /// Displays a list of players who have played the game.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
