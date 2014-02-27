@@ -405,16 +405,5 @@
             {
             }
         }
-        public void Load()
-        {
-            try
-            {
-
-
-            }
-            catch (Exception)
-            {
-            }
-        }
     }
 }
