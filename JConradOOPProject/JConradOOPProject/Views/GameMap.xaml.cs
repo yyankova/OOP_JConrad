@@ -46,7 +46,7 @@ namespace JConradOOPProject.Views
 
             TriggerIntroAction continueAction = delegate()
             {
-                MainMenu.SwitchWindowContent(new Battle(), true);
+                MainMenu.SwitchWindowContent(new Battle(locationText), true);
             };
 
             MainMenu.SwitchWindowContent(new Intro("battle_intro.jpg", String.Concat("Heading to ", locationText, " for battle..."), continueAction), true);
