@@ -25,7 +25,7 @@ namespace JConradOOPProject.Views
         public MainMenu()
         {
             InitializeComponent();
-            this.ContentSwitcher.Children.Add(new StartMenu());
+            this.ContentSwitcher.Children.Add(StartMenu.Instance);
         }
 
         /// <summary>

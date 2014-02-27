@@ -71,7 +71,7 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonBack_Click(object sender, RoutedEventArgs e)
         {
-            MainMenu.SwitchWindowContent(new StartMenu());
+            MainMenu.SwitchWindowContent(StartMenu.Instance);
         }
 
         /// <summary>

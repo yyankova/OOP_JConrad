@@ -26,7 +26,6 @@
 
         public GameEngine()
         {
-            // Moved to Initialize();
         }
 
         //Properties to be bound

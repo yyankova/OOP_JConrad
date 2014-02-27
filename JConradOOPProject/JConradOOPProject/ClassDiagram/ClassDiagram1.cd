@@ -53,7 +53,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="JConradOOPProject.GameObjects.Creatures.Lumberjack" Collapsed="true">
-    <Position X="24.75" Y="4.5" Width="1.5" />
+    <Position X="23.75" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAUAAAIAEAAACIAAAgAAAAEAAAAAAAAAAAAAAI=</HashCode>
       <FileName>GameObjects\Creatures\Lumberjack.cs</FileName>
@@ -79,13 +79,6 @@
     <TypeIdentifier>
       <HashCode>AAABAAAQAQAgEQAEIAEAAAQAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>GameObjects\Tools\Item.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="JConradOOPProject.GameObjects.Tools.Shop" Collapsed="true">
-    <Position X="28.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAACAAAAAgAAAAAgAAAAAAEAAAAEAAAAAA=</HashCode>
-      <FileName>GameObjects\Tools\Shop.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="JConradOOPProject.GameObjects.Tools.Shields.ChainArmour" Collapsed="true">
