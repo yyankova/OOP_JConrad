@@ -18,9 +18,6 @@ namespace JConradOOPProject.Views
     public partial class Equipment : UserControl
     {
         private GameEngine parent;
-        //private ObservableCollection<Item> inventory; //weapons and shields
-        //private ObservableCollection<Skill> skills;
-        //private ObservableCollection<Item> shop;
 
         public Equipment(GameEngine parent)
         {
@@ -40,24 +37,6 @@ namespace JConradOOPProject.Views
         /// <param name="e"></param>
         private void ButtonUse_Click(object sender, RoutedEventArgs e)
         {
-            //TabItem ti = this.TabControl.SelectedItem as TabItem;
-
-            //if (ti.Header.ToString().Equals("Inventory", StringComparison.Ordinal) == true)
-            //{
-            //}
-            //else if (ti.Header.ToString().Equals("Skills", StringComparison.Ordinal) == true)
-            //{
-
-            //}
-            //else if (ti.Header.ToString().Equals("Shop", StringComparison.Ordinal) == true)
-            //{
-
-            //}
-            //else
-            //{
-            //    //TODO: raise exception here!
-            //}
-
             this.ValidateListBox(Inventory);
             
             Equip((Item)this.Inventory.SelectedItem);
@@ -75,9 +54,16 @@ namespace JConradOOPProject.Views
 
             Button slot = (Button)sender;
 
-            Equip((Item)this.Skills.SelectedItem);
+            int slotNumber = 0;
 
-            // MessageBox.Show(slot.Name);
+            if (slot.Name.Equals("Slot1", StringComparison.Ordinal) == true)
+                slotNumber = 0;
+            if (slot.Name.Equals("Slot2", StringComparison.Ordinal) == true)
+                slotNumber = 1;
+            if (slot.Name.Equals("Slot3", StringComparison.Ordinal) == true)
+                slotNumber = 2;
+
+            Equip((Item)this.Skills.SelectedItem, slotNumber);
         }
 
         /// <summary>
@@ -154,10 +140,15 @@ namespace JConradOOPProject.Views
             if (parent.Skills == null)
             {
                 parent.Skills = new ObservableCollection<Skill>();
-                parent.Skills.Add(new Skill(id++, "Some skill 1", 85, 1m, 1m, 1m, "item"));
-                parent.Skills.Last().Description = "TODO: add description, change image";
-                parent.Skills.Add(new Skill(id++, "Some skill 2", 150, 2m, 2m, 2m, "item"));
+                
+                parent.Skills.Add(new Skill(id++, "Agility", 85, 1m, 5m, 1m, "item"));
+                parent.Skills.Last().Description = "This skill increases your hit rate";
+                
+                parent.Skills.Add(new Skill(id++, "Strength", 150, 2m, 2m, 2m, "item"));
                 parent.Skills.Last().Description = "This skill increases your defense and attack power.";
+
+                parent.Skills.Add(new Skill(id++, "Dexterity", 150, 1m, 2m, 3m, "item"));
+                parent.Skills.Last().Description = "This skill increases your mental and physical powers";
             }
 
             Skills.ItemsSource = parent.Skills;
@@ -200,7 +191,7 @@ namespace JConradOOPProject.Views
         /// <summary>
         /// Handle equipping the hero with a weapon, shield or skill
         /// </summary>
-        public void Equip(Item item)
+        public void Equip(Item item, int slot=0)
         {
             if (item is Weapon)
             {
@@ -226,9 +217,6 @@ namespace JConradOOPProject.Views
             }
             else if (item is Skill)
             {
-                //TODO: here get the correct slot!!!
-                int slot = 0;
-
                 if (parent.Player.CurrentSkills[slot] != null)
                 {
                     parent.Skills.Add(parent.Player.CurrentSkills[slot]);

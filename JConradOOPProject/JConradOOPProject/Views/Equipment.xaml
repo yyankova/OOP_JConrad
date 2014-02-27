@@ -166,7 +166,7 @@
                             </ListBox.Resources>
                             <!-- Dynamic Generation -->
                         </ListBox>
-                        <Button Content="Buy" HorizontalAlignment="Right" Click="ButtonUse_Click" />
+                        <Button Content="Buy" HorizontalAlignment="Right" Click="ButtonBuy_Click" />
                     </StackPanel>
                 </Grid>
             </TabItem>
